@@ -1,0 +1,11 @@
+/*
+*SCROLLBAR*
+*/
+.bc-data-scrollbar {
+  --track-color: rgba(0, 0, 0, 0);
+  --track-hovercolor: rgba(0, 0, 0, 0);
+  --track-activecolor: rgba(0, 0, 0, 0);
+  --thumb-color: rgba(0, 0, 0, 0.44);
+  --thumb-hovercolor: rgba(0, 0, 0, 0.55);
+  --thumb-activecolor: rgba(0, 0, 0, 0.66);
+}

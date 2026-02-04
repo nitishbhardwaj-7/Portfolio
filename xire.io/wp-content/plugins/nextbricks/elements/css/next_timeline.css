@@ -1,0 +1,152 @@
+/*
+* Timeline
+*/
+/* Root */
+.next-timeline {
+  clip-path: inset(
+    0 0 0 0
+  ); /*hide progress-bar (position fixed) out of the element*/
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: black; /**/
+  color: white;
+
+  width: 100%; /**/
+  height: auto; /**/
+
+  --progress-bar: 3px; /**/
+  --progress-start: 50vh; /**/
+  --progress-fade-edges-height: 50px; /**/
+  --sticky-top: 50vh; /**/
+  --from-opacity: 0.25; /**/
+}
+/* Progress bar */
+.next-timeline--progress {
+  position: absolute;
+  left: auto; /**/
+  right: auto; /**/
+
+  width: var(--progress-bar);
+  height: 100%; /**/
+
+  background-color: #414141; /**/
+
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0) var(--progress-fade-edges-height),
+    rgba(0, 0, 0) calc(100% - var(--progress-fade-edges-height)),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.next-timeline--progress-bar {
+  position: fixed;
+  left: auto;
+  top: 0px;
+  right: auto;
+  bottom: var(--progress-start);
+
+  width: var(--progress-bar);
+  height: var(--progress-start);
+
+  background-image: var(--gradient);
+}
+
+/* Item */
+.next-timeline--item {
+  position: relative;
+  z-index: 2;
+
+  width: auto;
+  height: auto;
+  padding: 40px 0;
+
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: minmax(auto, 1fr);
+}
+.next-timeline--sticky-wrapper {
+  position: sticky;
+  top: var(--sticky-top);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.next-timeline[data-left-fade="true"]
+  .next-timeline--left-section
+  .next-timeline--sticky-wrapper
+  > * {
+  opacity: var(--from-opacity);
+  will-change: opacity;
+}
+.next-timeline[data-center-fade="true"]
+  .next-timeline--center-section
+  .next-timeline--sticky-wrapper
+  > * {
+  opacity: var(--from-opacity);
+  will-change: opacity;
+}
+.next-timeline[data-right-fade="true"]
+  .next-timeline--right-section
+  .next-timeline--sticky-wrapper
+  > * {
+  opacity: var(--from-opacity);
+  will-change: opacity;
+}
+
+/* Left Section */
+.next-timeline--left-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100%; /**/
+}
+
+/* Center Section */
+.next-timeline--center-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100%; /**/
+}
+.next-timeline--center-section > .next-timeline--sticky-wrapper {
+  --sticky-wrapper-outline-color: black; /**/
+  --sticky-wrapper-outline-width: 8px; /**/
+
+  width: fit-content;
+  background: var(--sticky-wrapper-outline-color);
+  box-shadow: 0 0 0 var(--sticky-wrapper-outline-width)
+    var(--sticky-wrapper-outline-color);
+}
+.next-timeline--circle {
+  --dimensions: 15px; /**/
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+  max-height: var(--dimensions);
+  max-width: var(--dimensions);
+  min-height: var(--dimensions);
+  min-width: var(--dimensions);
+
+  border-radius: 100%;
+  background-color: white; /**/
+}
+
+/* Right Section */
+.next-timeline--right-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  height: 100%; /**/
+}

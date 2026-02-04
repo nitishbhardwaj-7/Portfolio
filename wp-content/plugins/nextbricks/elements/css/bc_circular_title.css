@@ -1,0 +1,67 @@
+/*
+*CIRCULAR TITLE*
+*/
+.next-arc-title[data-flickering="1"] {
+  opacity: 0;
+}
+.next-arc-title {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+
+  --dimensions: 200px;
+  --duration: 9s;
+  --easing: linear;
+}
+.next-arc-title:not(:has(> a)),
+.next-arc-title > a {
+  min-height: var(--dimensions);
+  height: calc(2 * var(--buffer));
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.next-arc-title .next-arc-title__inner {
+  --inner-angle: calc((360 / var(--char-count)) * 1deg);
+  --character-width: 1;
+  font-size: calc(var(--font-size, 1) * 1rem);
+  position: relative;
+
+  animation: dan-arc-spin var(--duration) infinite var(--easing);
+}
+.next-arc-title[data-reverse="1"] .next-arc-title__inner {
+  animation: dan-arc-spin-reverse var(--duration) infinite var(--easing);
+}
+@keyframes dan-arc-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+@keyframes dan-arc-spin-reverse {
+  to {
+    rotate: -360deg;
+  }
+}
+.next-arc-title[data-scroll="true"] .next-arc-title__inner {
+  animation: unset;
+}
+.next-arc-title .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.next-arc-title .char {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+    rotate(calc(var(--inner-angle) * var(--char-index)))
+    translateY(var(--radius));
+}

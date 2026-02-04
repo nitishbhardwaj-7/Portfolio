@@ -1,0 +1,36 @@
+/*
+* Vertical Marquee
+*/
+.bc-infinite-title {
+  position: relative;
+  overflow: hidden;
+
+  --gap: 10px; /**/
+
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap); /**/
+
+  width: 100%; /**/
+  height: auto; /**/
+
+  color: white;
+  --height: 50%;
+}
+.bc-infinite-title[data-blur-edges="1"] {
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0) var(--height),
+    rgba(0, 0, 0) calc(100% - var(--height)),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.bc-infinite-title[data-reverse="1"] {
+  flex-direction: column-reverse;
+}
+.bc-infinite-title__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--gap);
+}

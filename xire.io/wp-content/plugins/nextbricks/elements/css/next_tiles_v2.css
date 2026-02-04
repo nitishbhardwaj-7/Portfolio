@@ -1,0 +1,38 @@
+.next-tiles-v2 {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  --duration: 0.2s;
+  --easing: ease;
+}
+.next-tiles-v2__trail {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.next-tiles-v2__row {
+  display: flex;
+}
+.next-tiles-v2__dot {
+  opacity: 0;
+
+  transition: opacity var(--duration) var(--easing);
+}
+.next-tiles-v2__content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

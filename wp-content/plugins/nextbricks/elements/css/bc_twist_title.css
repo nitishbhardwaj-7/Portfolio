@@ -1,0 +1,29 @@
+/*
+*TWIST TITLE*
+*/
+.bc-twist-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-twist-title {
+  width: fit-content;
+  display: block;
+}
+.bc-twist-title__span {
+  display: block;
+  opacity: 0;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transform: translateY(100%) rotateX(-80deg);
+  transition: opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1),
+    transform 0s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.bc-twist-title__is-ready .bc-twist-title__span {
+  transform: none;
+  opacity: 1;
+}
+[data-ready="bc-twist-title__is-ready"] .bc-twist-title__span {
+  transform: none;
+  opacity: 1;
+}

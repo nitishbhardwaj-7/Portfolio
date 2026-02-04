@@ -1,0 +1,35 @@
+/*
+Overlay Menu
+*/
+.bc-overlay-menu {
+  width: fit-content;
+}
+.bc-core-burguer--overlay-menu {
+  position: relative;
+  z-index: 3;
+}
+.bc-overlay-menu__items-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #a0e806;
+
+  display: flex;
+
+  padding: 50px;
+  justify-content: center;
+  flex-direction: row;
+  column-gap: 15px;
+
+  visibility: hidden;
+  pointer-events: none;
+}
+.bc-overlay-menu__content {
+  position: relative;
+  z-index: 1;
+
+  width: 100vw;
+  height: fit-content;
+}

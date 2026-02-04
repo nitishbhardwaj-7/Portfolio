@@ -1,0 +1,93 @@
+/*
+*SWAP TITLE*
+*/
+.bc-swap-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-swap-title * {
+  will-change: transform; /*FIXES BLUR*/
+}
+.bc-swap-title {
+  display: block;
+  width: fit-content;
+  position: relative;
+
+  padding: 0;
+  line-height: normal;
+}
+.bc-swap-title__span-wrapper {
+  display: block;
+  overflow: hidden;
+}
+.bc-swap-title__span,
+.bc-swap-title__span .char,
+.bc-swap-title__span .word {
+  --skew: 0deg;
+  --duration: 1s;
+  --ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --fromtype: 1;
+  display: block;
+  position: relative;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  transition: transform var(--duration) var(--ease),
+    -webkit-transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease),
+    -o-transform var(--duration) var(--ease);
+}
+.bc-swap-title__span::after,
+.bc-swap-title__span .char::after,
+.bc-swap-title__span .word::after {
+  content: var(--after-content);
+  display: block;
+  position: absolute;
+  top: calc(var(--fromtype) * 100%);
+  left: 0;
+  -webkit-transform-origin: left top;
+  -moz-transform-origin: left top;
+  -ms-transform-origin: left top;
+  -o-transform-origin: left top;
+  transform-origin: left top;
+  transform: skewY(calc(var(--skew) * var(--fromtype)));
+  transition: transform var(--duration) var(--ease),
+    -webkit-transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease),
+    -o-transform var(--duration) var(--ease);
+}
+.bc-swap-title:hover .bc-swap-title__span,
+.bc-swap-title:hover .bc-swap-title__span .char,
+.bc-swap-title:hover .bc-swap-title__span .word {
+  -webkit-transform: translateY(calc(var(--fromtype) * -100%))
+    skewY(calc(var(--skew) * -1 * var(--fromtype)));
+  -moz-transform: translateY(calc(var(--fromtype) * -100%))
+    skewY(calc(var(--skew) * -1 * var(--fromtype)));
+  -ms-transform: translateY(calc(var(--fromtype) * -100%))
+    skewY(calc(var(--skew) * -1 * var(--fromtype)));
+  -o-transform: translateY(calc(var(--fromtype) * -100%))
+    skewY(calc(var(--skew) * -1 * var(--fromtype)));
+  transform: translateY(calc(var(--fromtype) * -100%))
+    skewY(calc(var(--skew) * -1 * var(--fromtype)));
+}
+.bc-swap-title--remove-line:hover
+  .bc-swap-title__span-wrapper
+  .bc-swap-title__span {
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  transform: none !important;
+}
+.bc-swap-title:hover .bc-swap-title__span::after,
+.bc-swap-title:hover .bc-swap-title__span .char::after,
+.bc-swap-title:hover .bc-swap-title__span .word::after {
+  -webkit-transform: skewY(calc(var(--skew) * var(--fromtype)));
+  -moz-transform: skewY(calc(var(--skew) * var(--fromtype)));
+  -ms-transform: skewY(calc(var(--skew) * var(--fromtype)));
+  -o-transform: skewY(calc(var(--skew) * var(--fromtype)));
+  transform: skewY(calc(var(--skew) * var(--fromtype)));
+}

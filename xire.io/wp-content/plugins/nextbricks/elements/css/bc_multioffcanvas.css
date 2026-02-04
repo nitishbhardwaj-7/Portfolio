@@ -1,0 +1,161 @@
+/*
+Multi OffCanvas (nestable)
+*/
+.bc-multi-offcanvas-menu {
+  width: fit-content;
+
+  --transition-duration-backdrop: 1s;
+  --transition-easing-backdrop: linear;
+  --slide-duration: 1s;
+  --slide-easing: cubic-bezier(0.33, 1, 0.68, 1);
+  --width: 50vw; /*width items wrapper*/
+}
+.bc-core-burguer--multi-offcanvas-menu {
+  top: 0px;
+  z-index: 3;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__items-wrapper {
+  -webkit-transform: translateX(var(--width));
+  transform: translateX(var(--width));
+  top: 0;
+  right: 0;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__items-wrapper {
+  -webkit-transform: translateX(calc(var(--width) * -1));
+  transform: translateX(calc(var(--width) * -1));
+  top: 0;
+  left: 0;
+}
+.bc-multi-offcanvas-menu__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(2, 105, 33, 0.4);
+
+  -webkit-transition: visibility 0s
+      calc(var(--transition-duration-backdrop) * 2),
+    opacity var(--transition-duration-backdrop)
+      var(--transition-easing-backdrop);
+  transition: visibility 0s calc(var(--transition-duration-backdrop) * 2),
+    opacity var(--transition-duration-backdrop)
+      var(--transition-easing-backdrop);
+}
+[data-open="bc-multi-offcanvas-menu--opened"]
+  .bc-multi-offcanvas-menu__backdrop {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+
+  -webkit-transition: opacity var(--transition-duration-backdrop)
+    var(--transition-easing-backdrop);
+  transition: opacity var(--transition-duration-backdrop)
+    var(--transition-easing-backdrop);
+}
+
+/*añadir accesibilidad*/
+.bc-multi-offcanvas-menu__items-wrapper {
+  position: fixed;
+  top: 0;
+  -webkit-transition: -webkit-transform var(--slide-duration)
+    var(--slide-easing); /*duration*/ /*easing*/
+  transition: transform var(--slide-duration) var(--slide-easing); /*duration*/ /*easing*/
+
+  height: 100vh; /*height*/
+  width: var(--width); /*width*/
+
+  padding: 50px; /*padding*/
+  --background: #a0e806;
+  background: var(--background); /*background*/ /*border*/ /*boxshadow*/
+
+  display: flex;
+  z-index: 190;
+
+  pointer-events: none;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__items-wrapper {
+  right: 0;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__items-wrapper {
+  left: 0;
+}
+[data-open="bc-multi-offcanvas-menu--opened"]
+  .bc-multi-offcanvas-menu__items-wrapper {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__items-wrapper[data-open] {
+  -webkit-transform: translate(-100%, 0px) !important;
+  transform: translate(-100%, 0px) !important;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__items-wrapper[data-open] {
+  -webkit-transform: translate(100%, 0px) !important;
+  transform: translate(100%, 0px) !important;
+}
+.bc-multi-offcanvas-menu__items-wrapper::after {
+  position: fixed;
+  top: 0;
+
+  background: var(--background); /*mismo background que en items-wrapper*/
+  content: "";
+
+  height: 100%;
+  width: 100%;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__items-wrapper::after {
+  right: calc(-100% + 1px);
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__items-wrapper::after {
+  left: calc(-100% + 1px);
+}
+.bc-multi-offcanvas-menu__subcanvas {
+  --subcanvas-duration: 1s;
+  --subcanvas-easing: cubic-bezier(0.33, 1, 0.68, 1);
+
+  position: fixed;
+  z-index: 2;
+  top: 0;
+
+  overflow: auto;
+
+  padding: 50px; /*padding*/
+  background: red; /*background*/ /*border*/ /*boxshadow*/
+
+  height: 100vh; /*height*/
+  width: 50vw; /*width*/
+
+  -webkit-transition: right var(--subcanvas-duration) var(--subcanvas-easing),
+    left var(--subcanvas-duration) var(--subcanvas-easing); /*duration*/ /*easing*/
+  transition: right var(--subcanvas-duration) var(--subcanvas-easing),
+    left var(--subcanvas-duration) var(--subcanvas-easing); /*duration*/ /*easing*/
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__subcanvas {
+  right: -200%;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromright"]
+  .bc-multi-offcanvas-menu__subcanvas[data-open] {
+  right: -100%;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__subcanvas {
+  left: -200%;
+}
+[data-classtype="bc-multi-offcanvas-menu--fromleft"]
+  .bc-multi-offcanvas-menu__subcanvas[data-open] {
+  left: -100%;
+}

@@ -1,0 +1,17 @@
+/*
+Unfold Reveal
+*/
+.bc-unfold-reveal__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-unfold-reveal,
+.bc-unfold-reveal__element {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-unfold-reveal__element[data-hide] {
+  opacity: 0;
+}

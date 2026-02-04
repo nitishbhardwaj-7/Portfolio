@@ -1,0 +1,44 @@
+/*
+* Gooey Nav
+*/
+.nb-gooey-nav {
+  filter: url("#nb-gooey-nav__filter");
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nb-gooey-nav svg {
+  display: none;
+}
+.nb-gooey-nav__item {
+  position: relative;
+
+  white-space: nowrap;
+  width: fit-content;
+  height: fit-content;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  transition: margin var(--gooey-duration) var(--gooey-ease);
+}
+.nb-gooey-nav--horizontal {
+  flex-direction: row;
+}
+.nb-gooey-nav--vertical {
+  flex-direction: column;
+}
+.nb-gooey-nav--horizontal .nb-gooey-nav__item:hover {
+  margin-left: calc(-1 * var(--gooey-merge-distance));
+  margin-right: calc(-1 * var(--gooey-merge-distance));
+}
+.nb-gooey-nav--vertical .nb-gooey-nav__item:hover {
+  margin-top: calc(-1 * var(--gooey-merge-distance));
+  margin-bottom: calc(-1 * var(--gooey-merge-distance));
+}

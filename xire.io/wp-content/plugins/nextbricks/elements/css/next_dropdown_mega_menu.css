@@ -1,0 +1,47 @@
+/*
+* Dropdown megaMenu
+*/
+.next-dropdown-mega-menu {
+  display: flex;
+}
+.next-dropdown-mega-menu__site-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+
+  width: fit-content;
+}
+.next-dropdown-mega-menu__dropdowns-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+
+  width: fit-content;
+}
+/*Responsive*/
+.next-dropdown-mega-menu__mobile-wrapper {
+  display: none;
+}
+/*Force Responsive at builder*/
+.next-dropdown-mega-menu[data-toggled-enable-mobile-menu]
+  .next-dropdown-mega-menu__mobile-wrapper {
+  display: flex;
+}
+.next-dropdown-mega-menu[data-toggled-enable-mobile-menu]
+  .next-dropdown-mega-menu__dropdowns-wrapper {
+  position: absolute;
+  z-index: 99;
+
+  pointer-events: none;
+  opacity: 0;
+}
+.next-dropdown-mega-menu[data-toggled-display-builder]
+  .next-dropdown-mega-menu__dropdowns-wrapper {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1) translateX(0) translateY(0);
+}

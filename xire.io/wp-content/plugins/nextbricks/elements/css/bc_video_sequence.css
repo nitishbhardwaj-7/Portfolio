@@ -1,0 +1,30 @@
+/*
+Video Sequence (nestable)
+*/
+.bc-video-sequence {
+  height: 600vh; /**/
+}
+[data-no-full] .bc-video-sequence__generator {
+  height: 100vh;
+
+  --dimensions: 500px;
+}
+[data-no-full] .bc-video-sequence__generator video {
+  width: var(--dimensions) !important;
+  height: var(--dimensions) !important;
+  min-width: var(--dimensions) !important;
+  min-height: var(--dimensions) !important;
+  max-width: var(--dimensions) !important;
+  max-height: var(--dimensions) !important;
+}
+.bc-video-sequence video {
+  display: none;
+}
+.bc-video-sequence > * {
+  position: relative;
+}
+.bc-video-sequence video:nth-child(1) {
+  display: inline-block;
+  position: absolute;
+  z-index: 0;
+}

@@ -1,0 +1,45 @@
+/*
+* Scroll Cascading
+*/
+.bc-scroll-cascading {
+  min-height: calc(var(--scroll) * 1vh);
+  view-timeline: --section;
+  align-content: start;
+
+  display: grid;
+  place-items: center;
+
+  --hue: 0;
+  --saturation: 0;
+  --lightness: 0;
+  --stroke: var(--hue) calc(var(--saturation) * 1%) calc(var(--lightness) * 1%);
+
+  --color: #000;
+  --stroke-width: 4px;
+  --leading: 0.25;
+  --scroll: 162;
+}
+.bc-scroll-cascading__sticker {
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  display: grid;
+  place-items: center;
+
+  font-size: 132px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.bc-scroll-cascading__title {
+  display: block;
+
+  line-height: calc(var(--leading) * 1lh);
+  margin: 0;
+  -webkit-text-stroke: var(--stroke-width)
+    hsl(var(--stroke) / calc((1 / var(--count)) * (var(--i) + 1)));
+  color: transparent;
+  white-space: nowrap;
+}
+.bc-scroll-cascading__title:last-of-type {
+  color: var(--color, canvasText);
+}

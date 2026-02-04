@@ -1,0 +1,100 @@
+/*
+* Designer Cursor
+*/
+/*flickering*/
+.next-designer-cursor--to-hide {
+  opacity: 0;
+}
+.next-designer-cursor--animation-enabled {
+  --floating-duration: 2s;
+  --floating-easing: ease-in-out;
+}
+.next-designer-cursor--animation-enabled.next-designer-cursor--animation-horizontal.next-designer-cursor--relative {
+  animation: floatingX var(--floating-duration) var(--floating-easing) infinite;
+}
+.next-designer-cursor--animation-enabled.next-designer-cursor--animation-vertical.next-designer-cursor--relative {
+  animation: floatingY var(--floating-duration) var(--floating-easing) infinite;
+}
+@keyframes floatingX {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes floatingY {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*attached to cursor*/
+.next-designer-cursor--attached {
+  position: fixed;
+  z-index: 9999; /**/
+  pointer-events: none;
+  opacity: 0;
+
+  --scale: 0.5; /**/
+  --duration: 0.3s; /**/
+  --easing: ease; /**/
+  transform: scale(var(--scale));
+  transition: opacity var(--duration) var(--easing),
+    transform var(--duration) var(--easing);
+}
+.next-designer-cursor--attached.active {
+  opacity: 1;
+  transform: scale(1);
+}
+/*non attached to cursor*/
+.next-designer-cursor-relative-parent {
+  position: relative;
+}
+.next-designer-cursor--relative {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999; /**/
+  pointer-events: none;
+}
+/*shared pointer styles*/
+.next-designer-cursor__pointer {
+  min-height: unset !important;
+  min-width: unset !important;
+
+  --dimensions: 24px; /**/
+  --rotate: -70deg; /**/
+  stroke: #0284c7; /**/
+  stroke-width: 1px; /**/
+  fill: #0ea5e9; /**/
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+  transform: translate(-50%, -50%) rotate(var(--rotate));
+}
+.next-designer-cursor__pointer-name {
+  position: absolute;
+  white-space: nowrap;
+
+  padding: 4px 8px; /*padding*/
+  top: 12px; /**/
+  left: 12px; /**/
+  background-color: #0ea5e9; /**/
+  border-radius: 100px; /*border*/
+  /*border-shadow*/
+
+  font-size: 14px; /*typography*/
+  font-weight: 400; /*typography*/
+  line-height: 1.7; /*typography*/
+  color: white; /*typography*/
+}

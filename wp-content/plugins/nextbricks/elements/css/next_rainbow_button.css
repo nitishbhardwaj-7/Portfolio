@@ -1,0 +1,88 @@
+.next-rainbow-button .next-rainbow-button__bg {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
+  border-radius: calc(var(--border-radius) - var(--border-width));
+}
+.next-rainbow-button,
+.next-rainbow-button span:nth-of-type(1),
+.next-rainbow-button::before,
+.next-rainbow-button::after {
+  animation-composition: add;
+  animation: rainbow var(--rainbow-duration) infinite var(--rainbow-easing),
+    rainbow calc(var(--rainbow-duration) / 2) infinite var(--rainbow-easing)
+      var(--state, paused);
+}
+@keyframes rainbow {
+  to {
+    background-position: 0 0, 0 0, 400% 0;
+  }
+}
+.next-rainbow-button {
+  border: var(--border-width) solid transparent;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 1;
+
+  width: fit-content;
+
+  border-radius: var(--border-radius);
+
+  --background-color: transparent;
+
+  background: linear-gradient(
+        light-dark(var(--background-color), var(--background-color)) 0 0
+      )
+      padding-box,
+    linear-gradient(0deg, #0000 0, var(--border) 18px) border-box,
+    linear-gradient(in lch longer hue 90deg, var(--base) 0 0) border-box 0 0 /
+      400% 100%;
+}
+.next-rainbow-button[data-play-hover="1"]:is(:hover),
+.next-rainbow-button[data-always-play="1"] {
+  --state: running;
+}
+.next-rainbow-button::before {
+  background: linear-gradient(#0000 0 0), linear-gradient(#0000 0 0),
+    linear-gradient(in lch longer hue 90deg, var(--base) 0 0) border-box 0 0 /
+      400% 100%;
+}
+.next-rainbow-button::after {
+  background: linear-gradient(#0000 0 0) padding-box,
+    linear-gradient(#0000 0 0) border-box,
+    linear-gradient(in lch longer hue 90deg, var(--base) 0 0) border-box 0 0 /
+      400% 100%;
+  mask: linear-gradient(#0000 0 0), linear-gradient(#000 0 0);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+}
+.next-rainbow-button::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  filter: blur(calc(var(--blur, 10) * 1px)) brightness(var(--brightness, 1.25));
+  inset: 60% 0 0 0;
+  border-radius: 50% 50% 6px 6px / 50% 50% 6px 6px;
+  transform-origin: 50% 25%;
+  opacity: 1;
+  scale: 0.6 0.4;
+  transition: scale 0.24s;
+}
+.next-rainbow-button[data-play-hover="1"]:is(:hover, :focus-visible)::before,
+.next-rainbow-button[data-always-play="1"]::before {
+  scale: 1.1 1.25;
+}
+.next-rainbow-button::after {
+  content: "";
+  position: absolute;
+  border: calc(var(--border-width, 2) * 1px) solid #0000;
+  inset: -8px;
+  border-radius: 14px;
+  opacity: 0;
+}

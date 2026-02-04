@@ -1,0 +1,71 @@
+/*
+* Arrow Button v3
+*/
+.nb-arrow-button-v3 {
+  --height: calc(
+    var(--dimensions) + var(--padding-top) + var(--padding-bottom)
+  );
+
+  padding-left: var(--padding-left);
+  padding-right: calc(var(--gap) + var(--dimensions));
+
+  height: var(--height);
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  cursor: pointer;
+  position: relative;
+}
+.nb-arrow-button-v3 svg {
+  min-width: unset;
+  min-height: unset;
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-arrow-button-v3[data-direction="left"] {
+  padding-right: var(--padding-right);
+  padding-left: calc(var(--gap) + var(--dimensions));
+}
+.nb-arrow-button-v3__arrow-wrapper {
+  width: var(--dimensions);
+  height: var(--dimensions);
+  transition: width var(--duration) var(--ease);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  right: var(--padding-right);
+}
+.nb-arrow-button-v3[data-direction="left"] .nb-arrow-button-v3__arrow-wrapper {
+  left: var(--padding-left);
+  right: auto;
+}
+.nb-arrow-button-v3__arrow-container {
+  position: absolute;
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-arrow-button-v3__arrow {
+  transform: rotate(var(--arrow-default-rotation));
+  transition: transform var(--duration) var(--ease);
+
+  stroke: var(--stroke);
+  fill: var(--stroke);
+}
+
+.nb-arrow-button-v3:hover .nb-arrow-button-v3__arrow-wrapper {
+  width: calc(100% - var(--padding-right) * 2);
+}
+.nb-arrow-button-v3[data-direction="left"]:hover
+  .nb-arrow-button-v3__arrow-wrapper {
+  width: calc(100% - var(--padding-left) * 2);
+}
+.nb-arrow-button-v3:hover .nb-arrow-button-v3__arrow {
+  transform: rotate(var(--arrow-rotation));
+}

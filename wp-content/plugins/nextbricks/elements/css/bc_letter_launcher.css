@@ -1,0 +1,15 @@
+/*
+*LETTER LAUNCHER*
+*/
+.bc-letter-launcher__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-letter-launcher {
+  display: block;
+  width: fit-content;
+}
+.bc-letter-launcher__inner--to-hide {
+  opacity: 0;
+}

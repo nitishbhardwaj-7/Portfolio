@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiLight.otf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiLightItalic.otf")
+    format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiRegular.otf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiItalic.otf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiMedium.otf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiMediumItalic.otf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiBold.otf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiBoldItalic.otf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiBlack.otf")
+    format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("https://usercontent.flodesk.com/8abf080e-449f-4003-bc72-3cc60a8fd76c/font/SatoshiBlackItalic.otf")
+    format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

@@ -1,0 +1,41 @@
+/*
+Expanding Menu (nestable)
+*/
+.bc-expanding-menu {
+  width: 100%;
+  display: flex;
+}
+.bc-core-burguer--expanding-menu {
+  position: relative;
+  z-index: 2;
+}
+.bc-expanding-menu__expanding {
+  display: block;
+  position: absolute;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 50px;
+
+  background: white;
+
+  transform: scale(0);
+}
+[data-type="bc-expanding-menu--fromtopleft"] .bc-expanding-menu__expanding {
+  transform-origin: top left;
+}
+[data-type="bc-expanding-menu--fromtopright"] .bc-expanding-menu__expanding {
+  transform-origin: top right;
+}
+[data-type="bc-expanding-menu--frombottomleft"] .bc-expanding-menu__expanding {
+  transform-origin: bottom left;
+}
+[data-type="bc-expanding-menu--frombottomright"] .bc-expanding-menu__expanding {
+  transform-origin: bottom right;
+}
+[data-fade="1"] .bc-expanding-menu__expanding {
+  opacity: 0;
+}
+[data-aux-scale="1"] .bc-expanding-menu__expanding.bricks-draggable-item {
+  transform: scale(0) !important;
+}

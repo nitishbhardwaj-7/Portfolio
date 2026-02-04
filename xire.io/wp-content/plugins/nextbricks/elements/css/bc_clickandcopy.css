@@ -1,0 +1,23 @@
+/*
+CLICK AND COPY (nestable)
+*/
+.bc-click-and-copy {
+  width: fit-content;
+  cursor: pointer;
+}
+.bc-click-and-copy > .bc-click-and-copy__icon {
+  border: unset;
+  border-radius: 10px;
+  padding: 10px;
+
+  color: white;
+
+  --icon-size: auto;
+}
+.bc-click-and-copy > .bc-click-and-copy__icon::before {
+  font-size: var(--icon-size);
+}
+.bc-click-and-copy .bc-click-and-copy__icon--hidden {
+  visibility: hidden;
+  display: none;
+}

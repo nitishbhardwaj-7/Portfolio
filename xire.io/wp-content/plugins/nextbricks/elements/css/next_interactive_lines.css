@@ -1,0 +1,33 @@
+.next-interactive-lines {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  overflow: hidden;
+}
+.next-interactive-lines canvas {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.next-interactive-lines[data-spotlight="true"] canvas {
+  /*from data-spotlight*/
+  --size: calc(var(--mask-size, 100) * 1px);
+  mask: radial-gradient(
+    var(--size) var(--size) at calc(var(--mx, 0) * 1px) calc(var(--my, 0) * 1px),
+    hsl(0 0% 100%),
+    hsl(0 0% 100% / var(--intensity, 0.2)) 80%
+  );
+}
+.next-interactive-lines__content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}

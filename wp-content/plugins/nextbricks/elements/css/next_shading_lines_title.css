@@ -1,0 +1,34 @@
+.next-shading-lines-title__lines {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+}
+
+.next-shading-lines-title__lines::after {
+  content: attr(data-text);
+  position: absolute;
+  left: var(--distance);
+  top: var(--distance);
+  z-index: -1;
+  background-image: linear-gradient(
+    var(--degree),
+    transparent 45%,
+    var(--shadow-color) 45%,
+    var(--shadow-color) 55%,
+    transparent 0
+  );
+  background-size: 0.06em 0.06em;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: line-shadow var(--duration) var(--easing) infinite;
+}
+
+@keyframes line-shadow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% -100%;
+  }
+}

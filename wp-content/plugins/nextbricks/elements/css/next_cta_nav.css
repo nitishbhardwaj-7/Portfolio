@@ -1,0 +1,48 @@
+/*
+* CTA nav
+*/
+.next-cta-nav * {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+.next-cta-nav {
+  overflow: hidden;
+  width: auto;
+  height: auto;
+
+  background-color: #ff98ed;
+
+  --offset: 20px;
+  --duration: 0.7s;
+  --easing: ease;
+
+  transition: width var(--duration) var(--easing),
+    height var(--duration) var(--easing);
+}
+.next-cta-nav--stick {
+  margin-top: unset;
+  position: fixed;
+  top: var(--offset);
+}
+.next-cta-nav__cta,
+.next-cta-nav__nav {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+
+  width: fit-content;
+  height: auto;
+
+  padding: 10px 20px;
+}
+.next-cta-nav--stick .next-cta-nav__cta {
+  display: none;
+}
+.next-cta-nav:not(.next-cta-nav--stick) .next-cta-nav__nav {
+  display: none;
+}
+.next-cta-nav__cta--get-width,
+.next-cta-nav__nav--get-width {
+  display: flex !important;
+}

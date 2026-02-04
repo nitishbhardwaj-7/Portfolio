@@ -1,0 +1,68 @@
+/*
+Unfold Hover
+*/
+.bc-unfold-hover__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+[data-hide-unfold-hover] {
+  opacity: 0;
+}
+.bc-unfold-hover {
+  display: block;
+  width: fit-content;
+
+  --intensity: 7px; /**/
+  --link-translate-x: 32px; /**/
+  --delay-between-letters: 25ms; /**/
+
+  --transition-duration: 0.4s; /**/
+  --transition-easing: cubic-bezier(0.445, 0.05, 0.55, 0.95); /**/
+}
+.bc-unfold-hover__wrapper {
+  display: grid;
+}
+.bc-unfold-hover__text {
+  grid-area: 1 / 1;
+  transition: opacity var(--transition-duration) var(--transition-easing),
+    transform var(--transition-duration) var(--transition-easing);
+}
+.bc-unfold-hover__text .word {
+  white-space: nowrap;
+}
+.bc-unfold-hover__text .char {
+  display: block;
+  transform-origin: 50% 50% var(--intensity);
+  transition: transform var(--transition-duration) var(--transition-easing);
+  transition-delay: calc(
+    0ms + var(--char-index) * var(--delay-between-letters)
+  );
+  backface-visibility: hidden;
+}
+.bc-unfold-hover__text:nth-child(1) {
+  /*typography 1*/
+}
+.bc-unfold-hover__text:nth-child(2) {
+  /*typography 2*/
+  opacity: 0;
+  position: absolute;
+}
+.bc-unfold-hover__text:nth-child(2) .char {
+  transform: rotate3d(1, -0.5, 0, 90deg);
+}
+.bc-unfold-hover:hover .bc-unfold-hover__text {
+  transform: translateX(var(--link-translate-x));
+}
+.bc-unfold-hover:hover .bc-unfold-hover__text:nth-child(1) {
+  opacity: 0;
+}
+.bc-unfold-hover:hover .bc-unfold-hover__text:nth-child(1) .char {
+  transform: rotate3d(1, 0.3, 0, -90deg);
+}
+.bc-unfold-hover:hover .bc-unfold-hover__text:nth-child(2) {
+  opacity: 1;
+}
+.bc-unfold-hover:hover .bc-unfold-hover__text:nth-child(2) .char {
+  transform: rotate3d(0, 0, 0, 90deg);
+}

@@ -1,0 +1,177 @@
+/*
+*UNDERLINE TITLE*
+*/
+.bc-underlined-title__anchor {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-underlined-title {
+  text-decoration: unset !important;
+  color: unset !important;
+
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-underlined-title__element {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  --width: 0px;
+  --height: 1px;
+  --bottom-distance: 0px;
+  --duration: 0.7s;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --background: currentColor;
+}
+/*sidetoside*/
+.bc-underlined-title__side-to-side:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--bottom-distance);
+  height: var(--height);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: right center;
+  -moz-transform-origin: right center;
+  -ms-transform-origin: right center;
+  -o-transform-origin: right center;
+  transform-origin: right center;
+  background: var(--background);
+  -webkit-transition: -webkit-transform var(--duration) var(--ease);
+  transition: -webkit-transform var(--duration) var(--ease);
+  -o-transition: -o-transform var(--duration) var(--ease);
+  -moz-transition: transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease);
+  transition: transform var(--duration) var(--ease);
+  transition: transform var(--duration) var(--ease),
+    -webkit-transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease),
+    -o-transform var(--duration) var(--ease);
+}
+.bc-underlined-title__side-to-side:hover:before {
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -ms-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+  transition-delay: unset;
+  -webkit-transition-delay: unset;
+  -o-transition-delay: unset;
+  -moz-transition-delay: unset;
+}
+/*one sided y twosided*/
+.bc-underlined-title__one-sided:after {
+  content: "";
+  position: absolute;
+  bottom: var(--bottom-distance);
+  left: 0;
+  width: var(--width);
+  border-bottom: var(--height) solid var(--background);
+  transition: var(--duration) var(--ease);
+}
+.bc-underlined-title__two-sided:after {
+  content: "";
+  display: block;
+  margin: auto;
+  bottom: var(--bottom-distance);
+  left: 0;
+  width: var(--width);
+  height: var(--height);
+  background: var(--background);
+  transition: width var(--duration) var(--ease);
+
+  position: relative;
+  border-bottom: unset;
+}
+.bc-underlined-title__one-sided:hover:after,
+.bc-underlined-title__two-sided:hover:after {
+  width: 100%;
+}
+.bc-underlined-title__one-sided:hover::after,
+.bc-underlined-title__two-sided:hover::after {
+  -webkit-transition: width var(--duration) var(--ease);
+  transition: width var(--duration) var(--ease);
+  -o-transition: width var(--duration) var(--ease);
+  -moz-transition: width var(--duration) var(--ease);
+  transition: width var(--duration) var(--ease);
+  transition: width var(--duration) var(--ease);
+}
+/*Full sided*/
+.bc-underlined-title__full-sided::after,
+.bc-underlined-title__full-sided::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--bottom-distance);
+  height: var(--height);
+  background: var(--background);
+
+  -webkit-transition: -webkit-transform var(--duration) var(--ease);
+  transition: -webkit-transform var(--duration) var(--ease);
+  -o-transition: -o-transform var(--duration) var(--ease);
+  -moz-transition: transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease);
+  transition: transform var(--duration) var(--ease);
+  transition: transform var(--duration) var(--ease),
+    -webkit-transform var(--duration) var(--ease),
+    -moz-transform var(--duration) var(--ease),
+    -o-transform var(--duration) var(--ease);
+}
+.bc-underlined-title__full-sided::before {
+  -webkit-transform-origin: left;
+  -moz-transform-origin: left;
+  -ms-transform-origin: left;
+  -o-transform-origin: left;
+  transform-origin: left;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+}
+.bc-underlined-title__full-sided::after {
+  -webkit-transform-origin: right;
+  -moz-transform-origin: right;
+  -ms-transform-origin: right;
+  -o-transform-origin: right;
+  transform-origin: right;
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.bc-underlined-title__full-sided:hover::before {
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform: scaleX(1);
+  transition-delay: 0.25s;
+  -webkit-transition-delay: 0.25s;
+  -o-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+}
+.bc-underlined-title__full-sided:hover::after {
+  width: unset;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+}

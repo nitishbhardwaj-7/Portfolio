@@ -1,0 +1,78 @@
+/*
+* Dropdown
+*/
+.next-dropdown {
+  position: absolute;
+  background: #d2d2d2;
+
+  width: fit-content;
+  height: fit-content;
+
+  border-radius: 8px;
+
+  opacity: 0;
+  pointer-events: none;
+  --scale: 0;
+  --x: 0px;
+  --y: -30px;
+  transform: scale(var(--scale)) translateX(var(--x)) translateY(var(--y));
+
+  --opacity-easing: ease;
+  --opacity-duration: 0.2s;
+  --opacity-delay: 0s;
+  --transform-easing: ease;
+  --transform-duration: 0.2s;
+  --transform-delay: 0s;
+  transition: opacity var(--opacity-duration) var(--opacity-easing)
+      var(--opacity-delay),
+    transform var(--transform-duration) var(--transform-easing)
+      var(--transform-delay);
+}
+.next-dropdown[data-toggled] {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1) translateX(0) translateY(0);
+}
+.next-dropdown[data-toggled-builder] {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1) translateX(0) translateY(0);
+}
+
+/*mask hover*/
+.next-dropdown::before {
+  content: "";
+  position: absolute;
+
+  --mask-top: 0px;
+  --mask-bottom: 0px;
+  --mask-left: 0px;
+  --mask-right: 0px;
+
+  top: calc(var(--mask-top) * -1);
+  bottom: var(--mask-bottom);
+  left: calc(var(--mask-left) * -1);
+  right: var(--mask-right);
+
+  display: block;
+  width: calc(100% + var(--mask-left) + var(--mask-right));
+  height: calc(100% + var(--mask-top) + var(--mask-bottom));
+
+  z-index: -1;
+}
+
+/*
+* Dropdown Wrapper
+*/
+.next-dropdown-wrapper {
+  width: fit-content;
+}
+.next-dropdown-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+
+  width: fit-content;
+}

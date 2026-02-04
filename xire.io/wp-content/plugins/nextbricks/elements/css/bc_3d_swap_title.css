@@ -1,0 +1,52 @@
+/*
+3D Swap Title
+*/
+.bc-3dswap-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+[bc-3dswap-title-hide] {
+  opacity: 0;
+}
+.bc-3dswap-title {
+  position: relative;
+
+  width: fit-content;
+  height: fit-content;
+
+  display: block;
+
+  line-height: 1;
+}
+.bc-3dswap-title span {
+  line-height: unset;
+}
+.bc-3dswap-title__inner-wrapper {
+  position: relative;
+}
+.bc-3dswap-title .bc-3dswap-title__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+.bc-3dswap-title .bc-3dswap-title__title--back {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: auto;
+  bottom: auto;
+}
+.bc-3dswap-title .bc-3dswap-title__title--front .char {
+  transform-origin: 50% 0%;
+}
+.bc-3dswap-title .bc-3dswap-title__title--back .char {
+  transform-origin: 50% 100%;
+}
+.bc-3dswap-title__inner-wrapper,
+.bc-3dswap-title__title--front {
+  display: block;
+}
+.bc-3dswap-title * {
+  height: 100%;
+}

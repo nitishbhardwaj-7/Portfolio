@@ -1,0 +1,71 @@
+/*
+* Shiny Button
+*/
+.nb-shiny-button[data-flickering="1"] {
+  opacity: 0;
+}
+.nb-shiny-button {
+  display: flex;
+  width: fit-content;
+
+  position: relative;
+
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+
+  border-radius: var(--border-radius);
+}
+
+.nb-shiny-button__text {
+  position: relative;
+}
+
+.nb-shiny-button__background {
+  position: absolute;
+  inset: var(--border-width);
+  border-radius: calc(var(--border-radius) - var(--border-width));
+  background-color: var(--shiny-background);
+}
+
+.nb-shiny-button__effects {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--fade-duration);
+}
+
+.nb-shiny-button:hover .nb-shiny-button__effects {
+  opacity: 1;
+}
+
+.nb-shiny-button__glow {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+      100% 50% at calc(50% - var(--mx, 50%)) 0%,
+      var(--shiny-color) 0%,
+      transparent 80%
+    ),
+    radial-gradient(
+      100% 50% at calc(var(--mx, 50%) + 50%) 100%,
+      var(--shiny-color) 0%,
+      transparent 80%
+    );
+}
+
+.nb-shiny-button__shine {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    125deg,
+    transparent 0%,
+    transparent 15%,
+    var(--shiny-color) 25%,
+    transparent 35%,
+    transparent 50%
+  );
+  background-size: 200%;
+  background-position: calc(var(--mx, 50%) + 20%) var(--my, 50%);
+  mix-blend-mode: screen;
+}

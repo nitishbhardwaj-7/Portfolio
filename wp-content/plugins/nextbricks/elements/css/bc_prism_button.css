@@ -1,0 +1,105 @@
+/*
+Prism Button
+*/
+.bc-prism-button {
+  white-space: nowrap;
+
+  z-index: 1;
+  display: block;
+
+  --padding-prism-top: 10px; /**/
+  --padding-prism-bottom: 10px; /**/
+  --padding-prism-left: 10px; /**/
+  --padding-prism-right: 10px; /**/
+
+  --padding-prism-top-bottom: calc(
+    var(--padding-prism-top) + var(--padding-prism-bottom)
+  );
+  --padding-prism-top-bottom-aux: calc(var(--padding-prism-top-bottom) / -2);
+
+  line-height: 1;
+  --font-size: 27px; /*font-size*/
+  font-size: var(--font-size);
+
+  width: fit-content;
+  height: calc(
+    var(--padding-prism-top) + var(--padding-prism-bottom) + var(--font-size)
+  );
+
+  --perspective: 1000px; /**/
+  perspective: var(--perspective);
+  -webkit-perspective: var(--perspective);
+
+  --transition-duration: 0.5s; /**/
+  --ease: cubic-bezier(0.645, 0.045, 0.355, 1); /**/
+}
+.bc-prism-button .bc-prism-button__wrapper {
+  pointer-events: none;
+
+  display: grid;
+
+  position: relative;
+  width: fit-content;
+  height: 100%;
+
+  transform-origin: 50% 50%
+    calc(var(--padding-prism-top-bottom-aux) + var(--font-size) / -2);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform var(--transition-duration) var(--ease);
+}
+.bc-prism-button[data-from-top]:hover .bc-prism-button__wrapper {
+  transform: rotateX(-90deg);
+}
+.bc-prism-button[data-from-bottom]:hover .bc-prism-button__wrapper {
+  transform: rotateX(90deg);
+}
+
+.bc-prism-button .bc-prism-button__front-text {
+  width: 100%;
+
+  padding-top: var(--padding-prism-top);
+  padding-bottom: var(--padding-prism-bottom);
+  padding-left: var(--padding-prism-left);
+  padding-right: var(--padding-prism-right);
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  position: relative;
+  z-index: 2;
+
+  text-align: center; /*typography sin font-size*/
+  color: #fff; /*typography sin font-size*/
+  background: #000; /*background*/
+}
+.bc-prism-button .bc-prism-button__back-text {
+  width: 100%;
+
+  padding-top: var(--padding-prism-top);
+  padding-bottom: var(--padding-prism-bottom);
+  padding-left: var(--padding-prism-left);
+  padding-right: var(--padding-prism-right);
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  position: relative;
+  left: 0;
+
+  text-align: center; /*typography sin font-size*/
+  color: #499103; /*typography sin font-size*/
+  background: #fff; /*background*/
+}
+.bc-prism-button[data-from-top] .bc-prism-button__back-text {
+  bottom: 200%;
+
+  transform-origin: center bottom;
+  transform: rotateX(90deg);
+}
+.bc-prism-button[data-from-bottom] .bc-prism-button__back-text {
+  top: 0%;
+
+  transform-origin: center top;
+  transform: rotateX(-90deg);
+}

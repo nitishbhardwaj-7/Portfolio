@@ -1,0 +1,38 @@
+/*
+Blended Title
+*/
+.bc-blended-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+[bc-blended-title-hide] {
+  opacity: 0;
+}
+.bc-blended-title {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-blended-title__inner-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  line-height: 0.9; /*typography*/
+
+  height: fit-content;
+  width: fit-content;
+  display: block;
+}
+.bc-blended-title__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+.bc-blended-title__title--back {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: auto;
+  bottom: auto;
+}

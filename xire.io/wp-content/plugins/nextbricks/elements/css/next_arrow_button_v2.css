@@ -1,0 +1,78 @@
+/*
+* Arrow Button v2
+*/
+.nb-arrow-button-v2 {
+  --height: calc(
+    var(--dimensions) + var(--padding-top) + var(--padding-bottom)
+  );
+
+  padding-left: var(--padding-left);
+  padding-right: calc(var(--gap) + var(--dimensions));
+
+  height: var(--height);
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+.nb-arrow-button-v2 svg {
+  min-width: unset;
+  min-height: unset;
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-arrow-button-v2[data-direction="left"] {
+  padding-right: var(--padding-right);
+  padding-left: calc(var(--gap) + var(--dimensions));
+}
+.nb-arrow-button-v2__arrow-wrapper {
+  width: var(--dimensions);
+  height: var(--dimensions);
+  transition: width var(--duration) var(--ease);
+
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  z-index: -1;
+  right: var(--padding-right);
+}
+.nb-arrow-button-v2[data-direction="left"] .nb-arrow-button-v2__arrow-wrapper {
+  left: var(--padding-left);
+  right: auto;
+}
+.nb-arrow-button-v2__arrow-container {
+  position: absolute;
+  right: 0;
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-arrow-button-v2[data-direction="left"]
+  .nb-arrow-button-v2__arrow-container {
+  left: 0;
+  right: auto;
+}
+.nb-arrow-button-v2__arrow {
+  transform: rotate(var(--arrow-default-rotation));
+  transition: transform var(--duration) var(--ease);
+
+  stroke: var(--stroke);
+  fill: var(--stroke);
+}
+
+.nb-arrow-button-v2:hover .nb-arrow-button-v2__arrow-wrapper {
+  width: calc(100% - var(--padding-right) * 2);
+}
+.nb-arrow-button-v2[data-direction="left"]:hover
+  .nb-arrow-button-v2__arrow-wrapper {
+  width: calc(100% - var(--padding-left) * 2);
+}
+.nb-arrow-button-v2:hover .nb-arrow-button-v2__arrow {
+  transform: rotate(var(--arrow-rotation));
+}

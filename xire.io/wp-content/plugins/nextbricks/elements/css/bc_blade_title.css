@@ -1,0 +1,23 @@
+/*
+*BLADE TITLE*
+*/
+.bc-blade-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-blade-title {
+  display: block;
+  width: fit-content;
+}
+.bc-blade-title__inner {
+  display: block;
+
+  clip-path: polygon(0 0, 150% 0, 150% 150%, 0% 150%);
+}
+.bc-blade-title__line-wrapper {
+  overflow: hidden;
+}
+.bc-blade-title__inner--to-hide {
+  opacity: 0;
+}

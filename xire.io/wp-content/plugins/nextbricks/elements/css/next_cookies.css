@@ -1,0 +1,104 @@
+/*
+* Cookies
+*/
+.next-cookies {
+  --notification-translate: 25px; /**/
+  --notification-transition-duration: 0.3s; /**/
+  --notification-transition-easing: ease; /**/
+}
+.next-cookies__notification {
+  position: fixed; /**/
+  z-index: 9998; /**/
+  left: 25px; /**/
+  bottom: 25px; /**/
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  column-gap: 72px;
+  row-gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+
+  max-width: fit-content; /**/
+  width: calc(100% - 50px); /**/
+  height: auto; /**/
+
+  padding: 24px; /**/
+  border-radius: 23px; /**/
+  border: 0.5px solid rgb(220, 220, 220); /**/
+  box-shadow: 6px 50px 40px -10px rgba(0, 0, 0, 0.3); /**/
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(var(--notification-translate));
+  transition: opacity var(--notification-transition-duration)
+      var(--notification-transition-easing),
+    transform var(--notification-transition-duration)
+      var(--notification-transition-easing);
+}
+.next-cookies__content {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.next-cookies__label {
+  font-size: 18px; /*typography*/
+  line-height: normal;
+  color: #000;
+}
+.next-cookies__info {
+  font-size: 14px; /*typography*/
+  line-height: normal;
+  color: #606060;
+}
+.next-cookies__buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+  align-items: center;
+  width: fit-content;
+}
+.next-cookies__manage,
+.next-cookies__allow {
+  cursor: pointer;
+}
+.next-cookies__manage {
+  padding: 12px 24px; /**/
+  border-radius: 12px; /**/
+  background: #eaeaea; /**/
+
+  font-size: 14px; /*typography*/
+  font-weight: 600;
+  color: #000;
+}
+.next-cookies__allow {
+  padding: 12px 24px; /**/
+  border-radius: 12px; /**/
+  background: #000; /**/
+
+  font-size: 14px; /*typography*/
+  font-weight: 600;
+  color: white;
+}
+
+.next-cookies__notification--opacity-disabled {
+  /**/
+  transition: transform var(--notification-transition-duration)
+    var(--notification-transition-easing);
+}
+.next-cookies__notification--transform-disabled {
+  /**/
+  transition: opacity var(--notification-transition-duration)
+    var(--notification-transition-easing);
+}
+.next-cookies__notification--opacity-transform-disabled {
+  /**/
+  transition: none;
+}
+.next-cookies__notification[data-opened] {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}

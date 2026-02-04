@@ -1,0 +1,37 @@
+/*
+Mousefill Title
+*/
+.bc-mousefill-title__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-mousefill-title {
+  --stroke-color: #fff; /*stroke color*/
+  --fill-color: #fff; /*fill color*/
+  --stroke-width: 2px;
+
+  font-size: 64px; /*typography*/
+  font-weight: 700;
+  text-transform: uppercase;
+
+  display: flex;
+
+  -webkit-text-stroke: var(--stroke-width) var(--stroke-color);
+  background: linear-gradient(to right, var(--fill-color) 0 100%) left / 0
+    no-repeat;
+  color: transparent;
+  background-clip: text;
+  background-size: 0% 100%;
+  position: relative;
+}
+.bc-mousefill-title[data-shadow="true"] {
+  background: linear-gradient(
+      to right,
+      var(--fill-color),
+      transparent 75%,
+      transparent
+    )
+    left / 0 no-repeat;
+  background-clip: text;
+}

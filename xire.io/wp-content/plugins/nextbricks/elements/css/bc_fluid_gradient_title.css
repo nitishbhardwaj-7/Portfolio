@@ -1,0 +1,33 @@
+/*
+Fluid Gradient Title
+*/
+.bc-fuid-gradient__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-fuid-gradient {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-fuid-gradient__gradient {
+  --bg-size: 400%;
+
+  /*typography*/
+  --duration: 15s;
+  --easing: linear;
+
+  background: var(--gradients); /*gradient control*/
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-animation: hue var(--duration) infinite var(--easing); /*duration y easing*/
+
+  background-clip: text;
+  animation: hue var(--duration) infinite var(--easing); /*duration y easing*/
+}
+@keyframes hue {
+  to {
+    background-position: var(--bg-size) 0;
+  }
+}

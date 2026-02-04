@@ -1,0 +1,62 @@
+/*
+Morphing Menu (nestable)
+*/
+.bc-morphing-menu {
+  position: relative;
+
+  width: fit-content;
+
+  display: flex;
+  flex-direction: unset;
+
+  --transition-duration: 0.3s;
+  --transition-delay: 0s;
+  --transition-ease: ease;
+}
+/*Menu item*/
+.bc-morphing-menu > * {
+  height: fit-content;
+  position: relative;
+  z-index: 2;
+}
+.bc-morphing-menu__item--active {
+  transition: color var(--transition-duration);
+}
+
+/*Morphing div + Estado*/
+.bc-morphing-menu__morphing-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-duration); /**/
+  transform-origin: left top;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 1;
+  background-color: #d1c9ff; /*box color*/
+}
+/*Morphing div en los items*/
+.demo-morph-bg-target {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  --height: 100%;
+  height: var(--height); /*box height*/
+  width: 100%; /*box width*/
+  pointer-events: none;
+
+  border-radius: 100px; /*box border*/
+}
+/*Transiciones en js*/
+.morph-bg--visible {
+  opacity: 1;
+}
+.morph-bg--has-transition {
+  transition: var(--transition-duration); /**/
+  will-change: transform, border-radius, height, width;
+}

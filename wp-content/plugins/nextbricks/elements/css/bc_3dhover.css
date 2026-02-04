@@ -1,0 +1,17 @@
+/*
+3D Hover (nestable)
+*/
+.bc-parallax-hover {
+  width: fit-content;
+}
+.atropos-inner {
+  width: auto;
+  height: auto;
+
+  background-color: #b53df6;
+
+  border-radius: 15px;
+}
+.bc-parallax-hover__heading {
+  width: 550px;
+}

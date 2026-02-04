@@ -1,0 +1,26 @@
+/*
+*GRAINED* (nestable)
+*/
+.bc-grained {
+  position: relative;
+
+  height: 500px;
+  width: 100%;
+
+  background: grey;
+}
+.bc-grained__child {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  opacity: 0.05;
+}
+[bc-grained__to-hide] {
+  opacity: 0;
+}

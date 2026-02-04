@@ -1,0 +1,59 @@
+/*
+Exchange Title (nestable)
+*/
+.bc-exchange-title {
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+
+  --duration: 0.2s;
+  --easing: ease-in-out;
+}
+.bc-exchange-title__wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  /*typography general*/
+}
+/*Para el primer item generado por el builder*/
+.bc-exchange-title:not(.brx-draggable)
+  .bc-exchange-title__wrapper
+  > *:not(:first-child) {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+}
+.bc-exchange-title.brx-draggable
+  .bc-exchange-title__wrapper
+  > *:not(:first-child):not(:nth-child(2)) {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/*don't return to top animation*/
+.bc-exchange-title__wrapper[data-returntotop="2"] > * {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+.bc-exchange-title__wrapper[data-returntotop="2"] > *[data-show] {
+  transform: translateY(-100%);
+  transition: var(--duration) transform var(--easing);
+}
+
+.bc-exchange-title__wrapper[data-returntotop="2"] > *[data-up] {
+  transform: translateY(-200%);
+  transition: var(--duration) transform var(--easing);
+}

@@ -1,0 +1,29 @@
+/*
+Scroll Gradient
+*/
+.bc-scroll-gradient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+  padding: 250px 25px;
+}
+[data-hide="bc-scroll-gradient--to-hide"] {
+  opacity: 0;
+}
+.bc-scroll-gradient__text {
+  position: relative;
+  max-width: 780px;
+
+  /*typography sin color*/
+  font-size: 36px;
+
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 100% 400%;
+  background-position: center 0;
+  background-image: var(--gradients); /*gradient control*/
+}

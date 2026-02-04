@@ -1,0 +1,14 @@
+/*
+Spinner
+*/
+.bc-spinner {
+  --dimensions: 200px;
+  width: var(--dimensions); /*width*/
+  height: var(--dimensions); /*height*/
+
+  stroke-width: 3px; /*stroke width*/
+  stroke: white; /*stroke color*/
+}
+[data-hide="bc-spinner--hide"] {
+  opacity: 0;
+}

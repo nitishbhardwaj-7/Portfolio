@@ -1,0 +1,26 @@
+/*
+Simple Menu (nestable)
+*/
+.bc-simple-menu {
+  position: relative;
+  width: 100%;
+}
+.bc-core-burguer--simple-menu {
+  position: relative;
+  z-index: 2;
+}
+.bc-simple-menu__content {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+
+  width: fit-content;
+  height: fit-content;
+
+  background: white;
+  opacity: 0;
+}
+[data-aux-fade="1"] .bc-simple-menu__content.bricks-draggable-item {
+  opacity: 0 !important;
+}

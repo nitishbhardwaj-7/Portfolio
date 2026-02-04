@@ -1,0 +1,32 @@
+/*
+* Circular Menu
+*/
+.nb-circular-menu {
+  width: fit-content;
+  height: fit-content;
+}
+.bc-core-burguer--circular-menu {
+  position: relative;
+  z-index: 2;
+}
+.nb-circular-menu__content {
+  position: absolute;
+  display: flex;
+  width: 100svw; /**/
+  height: 100svh; /**/
+  background: #c4c4c4; /**/
+
+  inset: 0px;
+  overflow: hidden;
+  transform: none;
+  transform-origin: 50% 50% 0px;
+
+  --from-top: 24px;
+  --from-left: 24px;
+
+  pointer-events: none;
+  clip-path: circle(
+    0px at var(--from-left) var(--from-top)
+  ); /*0% for top and left*/ /*100% for bottom and right*/
+  --clip-path: circle(150% at var(--from-left) var(--from-top));
+}

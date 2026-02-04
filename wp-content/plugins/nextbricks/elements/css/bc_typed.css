@@ -1,0 +1,18 @@
+/*
+Typed
+*/
+.bc-typed__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-typed,
+.bc-typed__wrapper {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.typed-cursor + .typed-cursor {
+  /*builder flick*/
+  display: none;
+}

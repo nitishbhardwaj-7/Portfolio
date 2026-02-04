@@ -1,0 +1,51 @@
+/*
+EXPANDER (nestable)
+*/
+.bc-expander-container {
+  width: 600px; /**/
+
+  background-color: black; /*background*/
+
+  border-radius: 20px; /*border*/
+}
+.bc-expander-question {
+  padding: 10px 20px; /*padding*/
+  position: relative;
+
+  display: flex;
+  align-items: center; /**/
+  justify-content: space-between; /**/
+  flex-direction: row; /**/
+  width: 100%;
+
+  cursor: pointer;
+  --icon-transition-duration: 0.2s;
+}
+.bc-expander-question-heading {
+  font-size: 16px; /*typography*/
+  color: white;
+}
+.bc-expander-question-icon {
+  font-size: 16px; /*typography*/
+  color: white;
+
+  transition: var(--icon-transition-duration); /**/
+}
+.bc-expander-question.bc-expander-active > .bc-expander-question-icon {
+  --rotate-degree: 180deg;
+  transform: rotate(var(--rotate-degree)); /**/
+}
+.bc-expander-answercont {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.3s; /**/
+
+  width: 100%;
+}
+.bc-expander-answer {
+  font-size: 1.6rem; /*typography*/
+  line-height: 1.5;
+  color: white;
+
+  padding: 0 20px 15px 20px; /*padding*/
+}

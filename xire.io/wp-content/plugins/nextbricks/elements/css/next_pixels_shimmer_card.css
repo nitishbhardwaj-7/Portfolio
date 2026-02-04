@@ -1,0 +1,25 @@
+/*
+* Pixels Shimmer Card
+*/
+.nb-pixels-shimmer-card[data-flickering="1"] {
+  opacity: 0;
+}
+.nb-pixels-shimmer-card {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: border-color var(--border-duration) var(--border-ease);
+}
+.nb-pixels-shimmer-card:hover,
+.nb-pixels-shimmer-card:focus-within {
+  border-color: var(--active-color) !important;
+}
+.nb-pixels-shimmer-card pixel-canvas {
+  position: absolute;
+  z-index: -1;
+}

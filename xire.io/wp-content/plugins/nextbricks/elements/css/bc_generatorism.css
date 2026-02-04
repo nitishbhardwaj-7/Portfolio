@@ -1,0 +1,66 @@
+/*
+Generatorism (nestable)
+*/
+.bc-generatorism {
+  width: 100%; /*dimensions*/
+  height: auto; /*dimensions*/
+}
+.bc-generatorism[data-class="bc-generatorism--glassmorphism"] {
+  border: 1px solid rgba(236, 236, 236, 0.1); /*border con nota de opacity*/
+  border-radius: 25%; /*border con nota de opacity*/
+
+  background: rgba(255, 255, 255, 0.1); /*background con nota de opacity*/
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1); /*box-shadow con nota de opacity*/
+
+  --filter: 10px; /*blur*/
+  -webkit-backdrop-filter: blur(var(--filter)); /*backdrop blur*/
+  backdrop-filter: blur(var(--filter)); /*backdrop blur*/
+}
+.bc-generatorism[data-class="bc-generatorism--neumorphism"] {
+  border-radius: 25%; /*border*/
+
+  --neumorphism-left-color: #fff9; /*left color*/
+  --neumorphism-right-color: #0001; /*right color*/
+  --dimensions: 20px; /*dimensions*/
+  box-shadow: calc(var(--dimensions) * -0.4) calc(var(--dimensions) * -0.4)
+      var(--dimensions) 0px var(--neumorphism-left-color),
+    calc(var(--dimensions) * -0.3) calc(var(--dimensions) * -0.3)
+      calc(var(--dimensions) * 0.3) 0px var(--neumorphism-left-color),
+    calc(var(--dimensions) * 0.4) calc(var(--dimensions) * 0.4)
+      var(--dimensions) 0px var(--neumorphism-right-color),
+    calc(var(--dimensions) * 0.25) calc(var(--dimensions) * 0.25)
+      calc(var(--dimensions) * 0.3) 0px var(--neumorphism-right-color),
+    inset 0px 0px 0px 0px var(--neumorphism-left-color),
+    inset 0px 0px 0px 0px var(--neumorphism-right-color),
+    inset 0px 0px 0px 0px var(--neumorphism-left-color),
+    inset 0px 0px 0px 0px var(--neumorphism-right-color);
+}
+.bc-generatorism[data-class="bc-generatorism--neumorphism-v2"] {
+  border-radius: 25%; /*border*/
+
+  --neumorphism-v2-left-color: #0001; /*left color*/
+  --neumorphism-v2-right-color: #fff9; /*right color*/
+  --dimensions-v2: 20px; /*dimensions*/
+  box-shadow: 0px 0px 0px 0px var(--neumorphism-v2-right-color),
+    0px 0px 0px 0px var(--neumorphism-v2-right-color),
+    0px 0px 0px 0px var(--neumorphism-v2-left-color),
+    0px 0px 0px 0px var(--neumorphism-v2-left-color),
+    inset calc(var(--dimensions-v2) * -0.4) calc(var(--dimensions-v2) * -0.4)
+      var(--dimensions-v2) 0px var(--neumorphism-v2-right-color),
+    inset calc(var(--dimensions-v2) * -0.25) calc(var(--dimensions-v2) * -0.25)
+      calc(var(--dimensions-v2) * 0.3) 0px var(--neumorphism-v2-right-color),
+    inset calc(var(--dimensions-v2) * 0.4) calc(var(--dimensions-v2) * 0.4)
+      var(--dimensions-v2) 0px var(--neumorphism-v2-left-color),
+    inset calc(var(--dimensions-v2) * 0.25) calc(var(--dimensions-v2) * 0.25)
+      calc(var(--dimensions-v2) * 0.3) 0px var(--neumorphism-v2-left-color);
+}
+.bc-generatorism[data-class="bc-generatorism--neobrutalism"] {
+  border-radius: 25%; /*border*/
+
+  background: #00ff9f; /*background*/
+
+  --thickness: 10px; /*thickness*/
+  --thickness-color: #000; /*thickness color*/
+  box-shadow: var(--thickness) var(--thickness) var(--thickness-color); /*box-shadow*/
+  border: solid var(--thickness) var(--thickness-color);
+}

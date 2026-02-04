@@ -1,0 +1,12 @@
+.next-mouse-parallax {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.next-mouse-parallax [parallax-element="true"] {
+  position: absolute;
+  will-change: transform;
+}

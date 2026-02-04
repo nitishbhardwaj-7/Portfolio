@@ -1,0 +1,70 @@
+/*
+*MICROBOX BUTTON*
+*/
+.bc-microbox-button {
+  position: relative;
+  --multiply: 0.75; /*multiply*/
+  width: calc(
+    300px * var(--multiply)
+  ); /*dimensiones boton*/ /*múltiplo para editar junto las demás dimensiones*/
+  height: calc(
+    100px * var(--multiply)
+  ); /*dimensiones boton*/ /*múltiplo para editar junto las demás dimensiones*/
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0; /*border properties*/
+  border-radius: 15px;
+  overflow: hidden;
+
+  white-space: wrap;
+}
+.bc-microbox-button__grid {
+  position: absolute;
+  width: calc(
+    300px * var(--multiply)
+  ); /*dimensiones boton*/ /*múltiplo para editar junto las demás dimensiones*/
+  height: calc(
+    100px * var(--multiply)
+  ); /*dimensiones boton*/ /*múltiplo para editar junto las demás dimensiones*/
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . ."
+    ". . . . . . . . . . . . . Area";
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto;
+  background: #2d61f0; /*background squares*/
+}
+.bc-microbox-button__square {
+  -webkit-box-direction: normal;
+  box-sizing: border-box;
+  width: calc(
+    10px * var(--multiply)
+  ); /*dimensiones boxes*/ /*múltiplo para editar junto las demás dimensiones*/
+  height: calc(
+    10px * var(--multiply)
+  ); /*dimensiones boxes*/ /*múltiplo para editar junto las demás dimensiones*/
+  background: #1f1f1f; /*background boton*/
+  transform: scale(1);
+}
+.bc-microbox-button__title {
+  position: absolute;
+
+  color: #fff; /*typography settings*/
+}

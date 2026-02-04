@@ -1,0 +1,68 @@
+/*
+* Arrow Icon
+*/
+.next-arrow-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+
+  width: 40px;
+  height: 40px;
+
+  --arrow-scale: 0.5;
+  --icon-hover-scale: 1.3;
+  --scale-duration: 0.4s;
+  --scale-easing: ease;
+  --scale-delay: 0s;
+  transition: scale var(--scale-duration) var(--scale-easing) var(--scale-delay);
+
+  --arrow-rotate: 0deg;
+
+  --distance-between-arrows: 50px;
+  --transform-duration: 0.4s;
+  --transform-easing: ease;
+  --transform-delay: 0s;
+
+  --arrow-hover-rotate: 45deg;
+  --rotate-duration: 0.4s;
+  --rotate-easing: ease;
+  --rotate-delay: 0s;
+}
+.next-arrow-icon__arrow {
+  position: absolute;
+  min-width: unset !important;
+  min-height: unset !important;
+
+  scale: var(--arrow-scale);
+  rotate: var(--arrow-rotate);
+  --fill: black;
+  fill: var(--fill);
+
+  transition: rotate var(--rotate-duration) var(--rotate-easing)
+      var(--rotate-delay),
+    transform var(--transform-duration) var(--transform-easing)
+      var(--transform-delay);
+}
+.next-arrow-icon__arrow--fancy {
+  stroke: var(--fill);
+}
+.next-arrow-icon__arrow:nth-child(2) {
+  transform: translateX(calc(-100% - var(--distance-between-arrows)));
+}
+
+.next-arrow-icon[data-active][data-enable-scale] {
+  scale: var(--icon-hover-scale);
+}
+.next-arrow-icon[data-active][data-enable-transform]
+  .next-arrow-icon__arrow:nth-child(1) {
+  transform: translateX(calc(100% + var(--distance-between-arrows)));
+}
+.next-arrow-icon[data-active][data-enable-transform]
+  .next-arrow-icon__arrow:nth-child(2) {
+  transform: translateX(0%);
+}
+.next-arrow-icon[data-active][data-enable-rotate] .next-arrow-icon__arrow {
+  rotate: var(--arrow-hover-rotate);
+}

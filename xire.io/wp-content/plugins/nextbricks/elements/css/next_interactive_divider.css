@@ -1,0 +1,42 @@
+/*
+* Interactive Divider
+*/
+.next-interactive-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%; /*width*/
+
+  --divider-height: 1px; /*height*/
+  --drag-height: 40px; /*drag height anim*/
+  --drop-height: 500px; /*drop height anim*/
+}
+.next-interactive-divider__line {
+  height: var(--divider-height);
+  width: 100%;
+  position: relative;
+}
+.next-interactive-divider__svg {
+  width: 100%;
+  height: var(--drop-height);
+  position: absolute;
+  top: calc(-1 * var(--drop-height) / 2);
+
+  overflow: visible;
+}
+.next-interactive-divider__path {
+  stroke: black; /*color*/
+  stroke-width: var(--divider-height);
+  fill: none;
+}
+.next-interactive-divider__box {
+  height: var(--drag-height);
+  width: 100%;
+  position: relative;
+  top: calc(-1 * var(--drag-height) / 2);
+  z-index: 1;
+}
+.next-interactive-divider__box:hover {
+  height: var(--drop-height);
+  top: calc(-1 * var(--drop-height) / 2);
+}

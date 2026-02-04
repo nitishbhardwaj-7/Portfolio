@@ -1,0 +1,55 @@
+.next-distorsion-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.next-distorsion-tabs__tabs {
+  position: relative;
+  will-change: transform;
+}
+.next-distorsion-tabs__tab {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: scale(1.1) skewY(-4deg) rotate(1deg);
+  opacity: 0;
+  transition: opacity 0s, transform 1.5s;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next-distorsion-tabs__tab--active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.next-distorsion-tabs__nav {
+  width: fit-content;
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.next-distorsion-tabs__nav::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.next-distorsion-tabs__nav-item {
+  width: fit-content;
+
+  cursor: pointer;
+  transition: all var(--opacity-duration) var(--opacity-easing); /*s opacity*/
+}
+.next-distorsion-tabs__nav-item--active {
+  opacity: 1 !important;
+}

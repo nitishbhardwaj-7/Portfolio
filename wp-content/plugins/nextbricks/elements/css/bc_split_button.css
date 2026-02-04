@@ -1,0 +1,132 @@
+/*
+Split Button
+*/
+.bc-split-button {
+  position: relative;
+  z-index: 1;
+
+  width: fit-content;
+
+  --hover-background: hsla(230, 13%, 9%, 0.075);
+
+  --transition-duration: 0.3s; /*transition duration*/
+  --transition-easing: ease; /*transition easing*/
+}
+.bc-split-button__btn,
+.bc-split-button__list-item {
+  all: unset;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/*general split button*/
+.bc-split-button__morph-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px; /*general split button border radius*/
+  pointer-events: none;
+  transform-origin: left top;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: hsl(0, 0%, 100%); /*general split button background*/
+  box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09); /*general split button box shadow*/
+  transition: box-shadow var(--transition-duration),
+    transform var(--transition-duration) var(--transition-easing),
+    background var(--transition-duration) var(--transition-easing),
+    height var(--transition-duration) var(--transition-easing),
+    width var(--transition-duration) var(--transition-easing);
+  will-change: transform, height, width;
+}
+[bc-split-button--expanded] .bc-split-button__btn {
+  opacity: 0;
+  pointer-events: none;
+}
+[bc-split-button--expanded] .bc-split-button__list-wrapper {
+  opacity: 1;
+  pointer-events: auto;
+}
+[bc-split-button--expanded] .bc-split-button__list {
+  transform: scale(1);
+}
+.bc-split-button__btn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; /*gap between button text and arrow*/
+
+  white-space: nowrap; /*white-space*/
+  text-decoration: none;
+  border-radius: 6px; /*border*/
+  padding: 8px 16px; /*padding*/
+  font-weight: 500; /*typography*/
+  line-height: 1.2;
+  color: hsl(230, 13%, 9%);
+  cursor: pointer;
+
+  transition: var(--transition-duration);
+  --translate-y: 2px;
+}
+.bc-split-button__btn:focus-visible {
+  outline: none;
+}
+.bc-split-button__btn:focus-visible ~ .bc-split-button__morph-bg {
+  box-shadow: 0 0 0 1px hsla(230, 13%, 9%, 0.05),
+    0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09), 0 0 0 2px hsl(0, 0%, 100%),
+    0 0 0 4px hsl(230, 7%, 23%);
+}
+.bc-split-button__btn:active {
+  transform: translateY(var(--translate-y)); /*translateY when active click*/
+}
+.bc-split-button__btn-icon {
+  --dimensions: 12px; /*icon dimensions*/
+  height: var(--dimensions);
+  width: var(--dimensions);
+  min-width: unset !important;
+  min-height: unset !important;
+}
+.bc-split-button__list-wrapper {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-duration);
+}
+.bc-split-button__list {
+  transform: scale(0.5);
+  transition: var(--transition-duration) var(--transition-easing);
+}
+.bc-split-button__list-item {
+  display: flex;
+  width: 100%;
+  white-space: nowrap; /*sub button white-space*/
+
+  font-size: 16px; /*sub button typography*/
+  color: hsl(230, 13%, 9%);
+  line-height: 1;
+  font-weight: 500;
+
+  margin: 4px; /*sub button margin*/
+  padding: 8px 12px; /*sub button padding*/
+  border-radius: 3px; /*sub button border radius*/
+
+  cursor: pointer;
+  transition: background var(--transition-duration);
+}
+.bc-split-button__list-item:hover,
+.bc-split-button__list-item:focus-visible {
+  background-color: var(--hover-background); /*sub button background on hover*/
+}

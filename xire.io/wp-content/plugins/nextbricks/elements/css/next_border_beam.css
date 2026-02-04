@@ -1,0 +1,63 @@
+/*
+* Border Beam
+*/
+.nb-border-beam {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #171717;
+
+  overflow: hidden;
+}
+.nb-border-beam__mask {
+  --size: 200; /*style*/
+  --anchor: 90; /*style*/
+  --border-width: 1.5; /*style*/
+  --color-from: #ffaa40; /*style*/
+  --color-to: #0096fe; /*style*/
+  --duration: 10s; /*anim*/
+  --easing: linear; /*anim*/
+
+  -webkit-mask: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  mask: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+
+  border: calc(var(--border-width) * 1px) solid transparent;
+
+  -webkit-mask-composite: source-in, xor !important;
+  mask-composite: intersect !important;
+
+  -webkit-mask-clip: padding-box, border-box !important;
+  mask-clip: padding-box, border-box !important;
+
+  inset: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.nb-border-beam__mask::after {
+  content: "";
+  offset-path: rect(0 auto auto 0 round calc(var(--size) * 1px));
+  offset-anchor: calc(var(--anchor) * 1%) 50%;
+  background: linear-gradient(
+    to left,
+    var(--color-from),
+    var(--color-to),
+    transparent
+  );
+
+  animation: border-beam calc(var(--duration)) infinite var(--easing);
+
+  width: calc(var(--size) * 1px);
+  aspect-ratio: 1 / 1;
+  position: absolute;
+
+  max-height: 100%;
+}
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+.brx-body.iframe .nb-border-beam--disable-builder .nb-border-beam__mask::after {
+  animation: unset;
+}

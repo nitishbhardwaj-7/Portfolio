@@ -1,0 +1,45 @@
+/*
+* Dock
+*/
+.next-dock-menu {
+  width: fit-content;
+  height: auto;
+  padding: 8px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+}
+.next-dock-menu__item {
+  --dimensions: 40px;
+  width: var(--dimensions);
+  height: var(--dimensions);
+  min-width: unset !important;
+  min-height: unset !important;
+  outline: unset !important;
+
+  cursor: pointer;
+  position: relative;
+}
+.next-dock-menu__item::before {
+  white-space: nowrap;
+  content: attr(data-tooltip);
+  display: block;
+
+  padding: 5px;
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 10px;
+  color: #e0e0e0;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.1s ease-out opacity;
+}
+.next-dock-menu__item:hover::before {
+  opacity: 1;
+}

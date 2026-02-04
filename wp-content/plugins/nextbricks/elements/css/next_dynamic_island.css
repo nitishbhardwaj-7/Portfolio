@@ -1,0 +1,75 @@
+/*
+* Dynamic Island
+*/
+.nb-dynamic-island[data-flickering="1"] {
+  opacity: 0;
+}
+.nb-dynamic-island__container {
+  left: var(--left);
+
+  transform: translateX(calc(-1 * var(--left)));
+
+  overflow: hidden;
+}
+.nb-dynamic-island__header {
+  display: flex; /*dynamic island header styles...*/
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+.nb-dynamic-island__title {
+  flex-grow: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+.nb-dynamic-island__link {
+  white-space: nowrap;
+
+  transition: color var(--link-color-duration) var(--link-color-ease);
+}
+.nb-dynamic-island__progress {
+  position: relative;
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-dynamic-island__progress svg {
+  transform: rotate(-90deg);
+
+  width: var(--dimensions);
+  height: var(--dimensions);
+}
+.nb-dynamic-island__progress-bg {
+  fill: none;
+  stroke-width: var(--thickness);
+}
+.nb-dynamic-island__progress-bar {
+  fill: none;
+  stroke-width: var(--thickness);
+  stroke-dasharray: 251.2; /*circular progress circumference*/
+}
+.nb-dynamic-island__progress-bar.animate {
+  transition: stroke-dashoffset var(--progress-bar-duration)
+    var(--progress-bar-ease);
+}
+.nb-dynamic-island__nav {
+  height: 0px;
+  pointer-events: none;
+}
+.nb-dynamic-island__container.open .nb-dynamic-island__nav {
+  pointer-events: auto;
+}
+.nb-dynamic-island__nav-wrapper {
+  display: flex; /*nav styles...*/
+  flex-direction: column;
+}
+.nb-dynamic-island__overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  -webkit-backdrop-filter: blur(var(--blur));
+  backdrop-filter: blur(var(--blur));
+}

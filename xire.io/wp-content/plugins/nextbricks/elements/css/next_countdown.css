@@ -1,0 +1,53 @@
+/*
+* Countdown
+*/
+.nb-countdown[data-flickering="1"] {
+  opacity: 0;
+}
+.nb-countdown {
+  width: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  line-height: 1em;
+  text-align: center;
+}
+.nb-countdown__unit-container {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  width: fit-content;
+  height: fit-content;
+}
+.nb-countdown__unit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.nb-countdown__digit-container {
+  display: block;
+  position: relative;
+  width: var(--unit-dimensions);
+  overflow: hidden;
+}
+.nb-countdown__current-value,
+.nb-countdown__next-value {
+  width: 100%;
+  left: 0;
+  text-align: center;
+}
+.nb-countdown__current-value {
+  position: relative;
+  top: 0;
+}
+.nb-countdown__next-value {
+  position: absolute;
+  top: -100%;
+}

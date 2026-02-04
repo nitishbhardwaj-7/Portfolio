@@ -1,0 +1,24 @@
+.next-cursor-trail {
+  position: relative;
+
+  width: 100%;
+
+  isolation: isolate;
+  overflow: hidden;
+}
+.next-cursor-trail__content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next-cursor-trail__item {
+  width: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  will-change: transform;
+}

@@ -1,0 +1,123 @@
+/*
+Glowing Card
+*/
+[data-hide="bc-glowing-card--hide"] {
+  opacity: 0;
+}
+.bc-glowing-card[data-disable-touch-devices] {
+  --base: 80; /*base hue*/
+  --spread: 500; /*hue spread*/
+  --saturation: 100; /*saturation*/
+  --lightness: 50; /*lightness*/
+
+  --outer: 0; /*outer glow via checkbox*/
+  --size: 200; /*spotlight size*/
+
+  --cardblur: 5; /*backdrop blur*/
+  --backdrop: hsl(0 0% 60% / 0.12); /*border y backdrop color*/
+  --bg-spot-opacity: 0.1; /*backdrop spot alpha*/
+  --backup-border: var(--backdrop);
+
+  --get-border-radius: 14; /*border radius*/
+  --border-radius: calc(var(--get-border-radius) * 1px);
+  --border-width: 3; /*border width*/
+  --border-spot-opacity: 1; /*border spot alpha*/
+  --border-light-opacity: 1; /*border light alpha*/
+
+  backdrop-filter: blur(calc(var(--cardblur, 5) * 1px));
+  border-radius: var(--border-radius);
+
+  width: 300px; /*width*/
+  height: 300px; /*height*/
+  padding: 15px; /*padding*/
+  box-shadow: 0 15px 30px -15px black; /*box shadow*/
+}
+/* Glow specific styles */
+.bc-glowing-card[data-glow] {
+  --border-size: calc(var(--border-width, 2) * 1px);
+  --spotlight-size: calc(var(--size, 150) * 1px);
+  --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+
+  border: var(--border-size) solid var(--backup-border);
+  position: relative;
+}
+.bc-glowing-card[data-glow]::before,
+.bc-glowing-card[data-glow]::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: calc(var(--border-size) * -1);
+  border: var(--border-size) solid transparent;
+  border-radius: var(--border-radius);
+  background-attachment: fixed;
+  background-size: calc(100% + (2 * var(--border-size)))
+    calc(100% + (2 * var(--border-size)));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+  mask-clip: padding-box, border-box;
+  mask-composite: intersect;
+  will-change: opacity;
+}
+/* This is the emphasis light */
+.bc-glowing-card[data-glow]::before {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+      calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+    hsl(
+      var(--hue, 210) calc(var(--saturation, 100) * 1%)
+        calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)
+    ),
+    transparent 100%
+  );
+  filter: brightness(2);
+}
+/* This is the spotlight */
+.bc-glowing-card[data-glow]::after {
+  background-image: radial-gradient(
+    calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+      calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+    hsl(0 100% 100% / var(--border-light-opacity, 1)),
+    transparent 100%
+  );
+}
+.bc-glowing-card[data-glow] [data-glow] {
+  position: absolute;
+  inset: 0;
+  will-change: filter;
+  opacity: var(--outer, 1);
+}
+.bc-glowing-card[data-glow] > [data-glow] {
+  border-radius: var(--border-radius);
+  border-width: calc(var(--border-size) * 20);
+  filter: blur(calc(var(--border-size) * 10));
+  background: none;
+  pointer-events: none;
+}
+.bc-glowing-card[data-glow] > [data-glow]::before {
+  inset: -10px;
+  border-width: 10px;
+}
+.bc-glowing-card[data-glow] [data-glow] {
+  border: none;
+}
+.bc-glowing-card[data-glow] :is(a, button) {
+  border-radius: var(--border-radius);
+  border: var(--border-size) solid transparent;
+}
+.bc-glowing-card[data-glow] :is(a, button) [data-glow] {
+  background: none;
+}
+.bc-glowing-card[data-glow] :is(a, button) [data-glow]::before {
+  inset: calc(var(--border-size) * -1);
+  border-width: calc(var(--border-size) * 1);
+}
+
+/* Disable at touch devices */
+.bc-glowing-card[data-disable] {
+  opacity: 1;
+}
+.bc-glowing-card[data-disable]::before,
+.bc-glowing-card[data-disable]::after {
+  display: none !important;
+}

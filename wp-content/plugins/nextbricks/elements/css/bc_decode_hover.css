@@ -1,0 +1,13 @@
+/*
+Decode Hover
+*/
+.bc-decode-hover__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-decode-hover {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}

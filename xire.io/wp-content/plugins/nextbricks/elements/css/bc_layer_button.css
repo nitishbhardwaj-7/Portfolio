@@ -1,0 +1,218 @@
+/*
+*LAYER BUTTON*
+*/
+a.bc-layer-button,
+a.bc-layer-button:hover {
+  color: unset;
+}
+.bc-layer-button {
+  position: relative;
+
+  display: flex;
+
+  width: fit-content;
+  height: fit-content;
+
+  background: unset;
+}
+.bc-layer-button__original-layer {
+  position: relative;
+
+  background: #080808; /**/
+  color: white;
+  padding: 20px 40px;
+  border-radius: 5px; /**/
+
+  --translate3dpxto: 0px; /*from*/
+  transform: translate3d(0, 0, 0);
+  --color: white;
+  --background: #080808;
+  transition: color, background, transform;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-duration: 0.3s;
+
+  z-index: 1; /*z-index*/ /**/
+  --z-index: 1;
+}
+.bc-layer-button:hover .bc-layer-button__original-layer {
+  color: var(--color) !important;
+  background: var(--background) !important;
+  transform: translate3d(
+    var(--translate3dpxto),
+    var(--translate3dpxto),
+    0
+  ); /*to*/
+  z-index: var(--z-index) !important; /*z-index on hover*/ /**/
+}
+.bc-layer-button__first-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%; /**/ /**/
+  height: 100%; /**/ /**/
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #3754f5; /**/
+  border: 0;
+  border-radius: 5px; /**/
+
+  color: #080808;
+  pointer-events: none;
+
+  --translate3dpxfrom: 6px; /*from*/
+  --translate3dpxto: 0px; /*from*/
+  transform: translate3d(var(--translate3dpxfrom), var(--translate3dpxfrom), 0);
+  --color: #080808;
+  --background: #3754f5;
+  transition: color, background, transform;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-duration: 0.3s; /*s*/
+
+  z-index: 0; /*z-index*/ /**/
+  --z-index: 0;
+}
+.bc-layer-button:hover .bc-layer-button__first-layer {
+  transform: translate3d(
+    var(--translate3dpxto),
+    var(--translate3dpxto),
+    0
+  ); /*to*/
+  color: var(--color) !important;
+  background: var(--background) !important;
+
+  z-index: var(--z-index) !important; /*z-index on hover*/ /**/
+}
+.bc-layer-button__second-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%; /**/ /**/
+  height: 100%; /**/ /**/
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #d95ff8; /**/
+  border: 0;
+  border-radius: 5px; /**/
+
+  color: #080808;
+  pointer-events: none;
+
+  --translate3dpxfrom: 12px; /*from*/
+  --translate3dpxto: 0; /*from*/
+  transform: translate3d(var(--translate3dpxfrom), var(--translate3dpxfrom), 0);
+  --color: #080808;
+  --background: #d95ff8;
+  transition: color, background, transform;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-duration: 0.3s; /*s*/
+
+  z-index: -1; /*z-index*/ /**/
+  --z-index: -1;
+}
+.bc-layer-button:hover .bc-layer-button__second-layer {
+  transform: translate3d(
+    var(--translate3dpxto),
+    var(--translate3dpxto),
+    0
+  ); /*to*/
+  color: var(--color) !important;
+  background: var(--background) !important;
+
+  z-index: var(--z-index) !important; /*z-index on hover*/ /**/
+}
+.bc-layer-button__third-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%; /**/ /**/
+  height: 100%; /**/ /**/
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #3754f5; /**/
+  border: 0;
+  border-radius: 5px; /**/
+
+  color: #080808;
+  pointer-events: none;
+
+  --translate3dpxfrom: 18px; /*from*/
+  --translate3dpxto: 0; /*from*/
+  transform: translate3d(var(--translate3dpxfrom), var(--translate3dpxfrom), 0);
+  --color: #080808;
+  --background: #3754f5;
+  transition: color, background, transform;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-duration: 0.3s; /*s*/
+
+  z-index: -2; /*z-index*/ /**/
+  --z-index: -2;
+}
+.bc-layer-button:hover .bc-layer-button__third-layer {
+  transform: translate3d(
+    var(--translate3dpxto),
+    var(--translate3dpxto),
+    0
+  ); /*to*/
+  color: var(--color) !important;
+  background: var(--background) !important;
+
+  z-index: var(--z-index) !important; /*z-index on hover*/ /**/
+}
+.bc-layer-button__fourth-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%; /**/ /**/
+  height: 100%; /**/ /**/
+  padding: 20px 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #d95ff8; /**/
+  border: 0;
+  border-radius: 5px; /**/
+
+  color: #080808;
+  pointer-events: none;
+
+  --translate3dpxfrom: 24px; /*from*/
+  --translate3dpxto: 0; /*from*/
+  transform: translate3d(var(--translate3dpxfrom), var(--translate3dpxfrom), 0);
+  --color: #080808;
+  --background: #d95ff8;
+  transition: color, background, transform;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.2, 1);
+  transition-duration: 0.3s; /*s*/
+
+  z-index: -3; /*z-index*/ /**/
+  --z-index: -3;
+}
+.bc-layer-button:hover .bc-layer-button__fourth-layer {
+  transform: translate3d(
+    var(--translate3dpxto),
+    var(--translate3dpxto),
+    0
+  ); /*to*/
+  color: var(--color) !important;
+  background: var(--background) !important;
+
+  z-index: var(--z-index) !important; /*z-index on hover*/ /**/
+}

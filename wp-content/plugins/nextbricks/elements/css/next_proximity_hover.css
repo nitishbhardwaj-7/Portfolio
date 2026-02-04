@@ -1,0 +1,6 @@
+.next-proximity-hover__char {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform var(--duration) var(--easing),
+    font-variation-settings var(--duration) var(--easing);
+}

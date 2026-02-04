@@ -1,0 +1,51 @@
+/*
+* Cursor Slide
+*/
+.next-cursor-slide {
+  position: fixed;
+
+  overflow: hidden;
+  pointer-events: none;
+
+  --width: 300px; /*slide item width*/
+  --height: 300px; /*slide item height*/
+
+  --slide-duration: 0.4s; /*slide duration*/
+  --slide-easing: cubic-bezier(0.76, 0, 0.24, 1); /*slide easing*/
+  --cursor-duration: 0.5s; /*cursor duration*/
+  --cursor-easing: cubic-bezier(0.76, 0, 0.24, 1); /*cursor easing*/
+
+  width: var(--width);
+  height: var(--height);
+
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center center;
+  transition: transform var(--slide-duration) var(--slide-easing);
+}
+.next-cursor-slide--opened {
+  transform: translate(-50%, -50%) scale(1);
+}
+.next-cursor-slide--closed {
+  transform: translate(-50%, -50%) scale(0);
+}
+.next-cursor-slide__transform {
+  width: 100%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+
+  transition: top var(--cursor-duration) var(--cursor-easing);
+}
+.next-cursor-slide__item {
+  width: var(--width);
+  height: var(--height);
+}
+.next-cursor-slide__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,48 @@
+/*
+*SVG TITLE*
+*/
+.bc-svg-title {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+
+  --animation-duration: 5s;
+  --animation-delay: 0.2s;
+}
+.bc-svg-title__element {
+  display: flex;
+  width: 250px; /*ancho del svg*/
+  height: auto; /*altura del svg*/
+}
+.bc-svg-title__element text {
+  fill: transparent; /*color*/
+  stroke: black; /*color del stroke*/
+  stroke-width: 1; /*width del stroke*/
+  font-family: helvetica; /*typography*/
+
+  visibility: hidden;
+
+  stroke-dasharray: 0 50%;
+}
+.bc-svg-title__animation text {
+  visibility: visible;
+  animation: SVGTitleAnimate var(--animation-duration) var(--animation-delay)
+    forwards;
+}
+[data-ready="bc-svg-title__animation"] text {
+  visibility: visible;
+  animation: SVGTitleAnimate var(--animation-duration) var(--animation-delay)
+    forwards;
+}
+[data-ready="bc-svg-title__animation--played"] text {
+  visibility: visible;
+  stroke-dasharray: 0 50%;
+}
+@keyframes SVGTitleAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+  }
+  100% {
+    stroke-dasharray: 50% 0;
+  }
+}

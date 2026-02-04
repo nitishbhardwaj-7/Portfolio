@@ -1,0 +1,35 @@
+/*
+* Stacking Cards
+*/
+.next-stacking-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  --offset: 0px; /**/
+  --width: 100vw; /**/
+  --height: 100vh; /**/
+}
+.next-stacking-cards__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: sticky;
+  top: var(--offset);
+  width: var(--width);
+  height: var(--height);
+
+  color: white; /*typography - general*/
+}
+.next-stacking-cards__card--1 {
+  background: #2f251e;
+}
+.next-stacking-cards__card--2 {
+  background: #43392f;
+}
+.next-stacking-cards__card--3 {
+  background: #12100e;
+}

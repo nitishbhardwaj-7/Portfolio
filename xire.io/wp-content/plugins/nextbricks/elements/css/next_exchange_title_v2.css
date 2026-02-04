@@ -1,0 +1,23 @@
+.next-exchange-title-v2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.next-exchange-title-v2__animated-container {
+  overflow: hidden;
+
+  width: auto;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  --padding-top: var(--vertical-padding);
+  --padding-bottom: var(--vertical-padding);
+  --padding-left: var(--horizontal-padding);
+  --padding-right: var(--horizontal-padding);
+}
+.next-exchange-title-v2__word {
+  display: block;
+}

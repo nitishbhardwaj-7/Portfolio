@@ -1,0 +1,30 @@
+/*
+Core Tabs (nestable)
+*/
+.bc-core-tabs[data-to-hide] {
+  opacity: 0;
+}
+.bc-core-tabs {
+  --animation-duration: 0.4s;
+  --animation-ease: ease;
+
+  --opacity-from: 0;
+  --translate-x-from: 0;
+  --translate-y-from: 0;
+}
+.bc-core-tabs__tab-content[data-hide] {
+  display: none;
+}
+.bc-core-tabs__tab-content[data-show] {
+  opacity: var(--opacity-from);
+  transform: translate(var(--translate-x-from), var(--translate-y-from));
+
+  animation: coreTabsAnimationIn var(--animation-duration) var(--animation-ease)
+    forwards;
+}
+@keyframes coreTabsAnimationIn {
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

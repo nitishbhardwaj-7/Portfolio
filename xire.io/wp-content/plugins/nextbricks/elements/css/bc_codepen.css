@@ -1,0 +1,22 @@
+/*
+Codepen
+*/
+.bc-codepen {
+  width: 100%;
+  overflow: hidden;
+}
+.bc-codepen[bc-codepen--to-hide] {
+  opacity: 0;
+}
+.bc-codepen__pen {
+  height: 600px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 20px solid;
+  margin: 1em 0;
+  padding: 1em;
+}

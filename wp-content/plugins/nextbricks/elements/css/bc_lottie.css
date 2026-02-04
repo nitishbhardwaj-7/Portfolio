@@ -1,0 +1,15 @@
+/*
+*LOTTIE*
+*/
+.bc-lottie {
+  display: block;
+  width: 350px; /**/
+  height: fit-content; /**/
+}
+.bc-lottie__element {
+  width: 100%; /*width lottie*/
+  height: auto;
+}
+.bc-lottie__to-hide {
+  opacity: 0;
+}

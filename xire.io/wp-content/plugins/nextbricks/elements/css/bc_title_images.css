@@ -1,0 +1,36 @@
+/*
+*TITLE IMAGES* (nestable)
+*/
+.bc-title-images {
+  width: fit-content;
+  height: fit-content;
+}
+.bc-title-images__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bc-inline-div {
+  margin-block: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+.bc-inline-img,
+.bc-inline-div video {
+  /*cada imagen debe ser unica*/
+  border-radius: 15px; /*borde de la imagen*/
+  width: 100px; /*anchura de la imagen*/
+  height: 65px; /*altura de la imagen*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  margin: 0 14px; /*margenes de la imagen*/
+}
+.bc-inline-span div {
+  display: inline;
+}

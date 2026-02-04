@@ -1,0 +1,19 @@
+.next-swap-reading[data-flickering="1"] {
+  opacity: 0;
+}
+.next-swap-reading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.next-swap-reading__line {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.next-swap-reading__mask-line {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}

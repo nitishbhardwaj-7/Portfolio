@@ -1,0 +1,32 @@
+/*
+*SCROLL READING*
+*/
+.bc-scroll-reading {
+  display: block;
+  width: 100%;
+  height: fit-content;
+}
+.bc-scroll-reading__element {
+  font-size: 8rem; /*typography*/
+}
+.bc-scroll-reading__element .line {
+  position: relative;
+}
+.bc-scroll-reading__line-mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white; /*mask color*/
+  --opacity: 0.1; /*opacity text to read*/
+  opacity: calc(1 - var(--opacity));
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+}
+.bc-scroll-reading--rtl .bc-scroll-reading__line-mask {
+  left: 0;
+  right: unset;
+}
+.bc-scroll-reading__to-hide {
+  opacity: 0;
+}

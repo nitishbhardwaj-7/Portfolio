@@ -1,0 +1,157 @@
+/*
+*RIPPLE BUTTON*
+*/
+.bc-ripple-button {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+
+  white-space: nowrap;
+
+  color: #000;
+  line-height: normal;
+
+  padding: 15px 50px; /**/
+  border-radius: 50px; /*minimo 32 px*/
+  background: white; /**/
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition-duration) var(--transition-ease); /*s*/
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  -webkit-perspective: 1000;
+  will-change: transform;
+
+  --transition-duration: 0.8s;
+  --transition-duration-in: 0.8s;
+  --transition-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --skew-text: 10deg;
+
+  --amplitude: 0%;
+}
+.bc-ripple-button__text {
+  opacity: 0;
+  will-change: transform;
+}
+.bc-ripple-button__pseudo {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+.bc-ripple-button__pseudo::before {
+  content: attr(data-content);
+  position: absolute;
+  top: 0; /*posicion inicial del texto original*/ /*change*/
+  transform: skewY(0);
+  transition: var(--transition-duration) var(--transition-ease); /*s*/
+  will-change: transform;
+}
+.bc-ripple-button__pseudo::after {
+  content: attr(data-content);
+  position: absolute;
+  top: 300%; /*posicion inicial del texto que suplanta*/ /*change*/
+  left: 0;
+  transform: skewY(var(--skew-text)); /**/
+  z-index: 5;
+  color: white; /**/
+  transition: var(--transition-duration) var(--transition-ease); /*s*/
+  will-change: transform;
+}
+.bc-ripple-button__hover-fill {
+  position: absolute;
+  top: -155%; /*posicion inicial de la mascara*/ /*change*/
+  left: calc(var(--amplitude) * -1); /*change*/
+  height: 150%; /*altura de la mascara*/ /*change*/
+  width: calc(100% + var(--amplitude) * 2); /*change*/
+  background: #000; /**/
+  z-index: -5;
+  border-radius: 0 0 50% 50%; /*bordes de la mascara*/
+  transition: var(--transition-duration) var(--transition-ease); /*s*/
+}
+.bc-ripple-button:hover .bc-ripple-button__pseudo::before,
+.bc-ripple-button:focus .bc-ripple-button__pseudo::before {
+  transform: skewY(var(--skew-text)); /**/
+  top: -300%; /*translateY del texto original*/ /*change*/
+  will-change: transform;
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+.bc-ripple-button:hover .bc-ripple-button__pseudo::after,
+.bc-ripple-button:focus .bc-ripple-button__pseudo::after {
+  transform: skewY(0);
+  top: 0; /*translateY del texto que suplanta*/ /*change*/
+  will-change: transform;
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+.bc-ripple-button:hover .bc-ripple-button__hover-fill,
+.bc-ripple-button:focus .bc-ripple-button__hover-fill {
+  transform: translateY(100%); /*translateY de la mascara*/ /*change*/
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+/*ripple from bottom*/
+[data-type="bc-ripple-button--from-bottom"] .bc-ripple-button__pseudo::after {
+  top: -300%;
+}
+[data-type="bc-ripple-button--from-bottom"] .bc-ripple-button__hover-fill {
+  border-radius: 50% 50% 0 0;
+  top: 105%;
+}
+[data-type="bc-ripple-button--from-bottom"]:hover
+  .bc-ripple-button__pseudo::before,
+[data-type="bc-ripple-button--from-bottom"]:focus
+  .bc-ripple-button__pseudo::before {
+  top: 300%;
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+[data-type="bc-ripple-button--from-bottom"]:hover .bc-ripple-button__hover-fill,
+[data-type="bc-ripple-button--from-bottom"]:focus
+  .bc-ripple-button__hover-fill {
+  transform: translateY(-100%);
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+/*ripple from left*/
+[data-type="bc-ripple-button--from-left"] .bc-ripple-button__pseudo::after {
+  top: -300%;
+}
+[data-type="bc-ripple-button--from-left"] .bc-ripple-button__hover-fill {
+  border-radius: 0 0 0 0;
+  top: -25%;
+  left: -155%;
+  width: 150%;
+}
+[data-type="bc-ripple-button--from-left"]:hover
+  .bc-ripple-button__pseudo::before,
+[data-type="bc-ripple-button--from-left"]:focus
+  .bc-ripple-button__pseudo::before {
+  top: 300%;
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+[data-type="bc-ripple-button--from-left"]:hover .bc-ripple-button__hover-fill,
+[data-type="bc-ripple-button--from-left"]:focus .bc-ripple-button__hover-fill {
+  transform: translateX(100%);
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+/*ripple from right*/
+[data-type="bc-ripple-button--from-right"] .bc-ripple-button__pseudo::after {
+  top: -300%;
+}
+[data-type="bc-ripple-button--from-right"] .bc-ripple-button__hover-fill {
+  border-radius: 0 0 0 0;
+  top: -25%;
+  left: 105%;
+  width: 150%;
+}
+[data-type="bc-ripple-button--from-right"]:hover
+  .bc-ripple-button__pseudo::before,
+[data-type="bc-ripple-button--from-right"]:focus
+  .bc-ripple-button__pseudo::before {
+  top: 300%;
+  transition: var(--transition-duration-in) var(--transition-ease);
+}
+[data-type="bc-ripple-button--from-right"]:hover .bc-ripple-button__hover-fill,
+[data-type="bc-ripple-button--from-right"]:focus .bc-ripple-button__hover-fill {
+  transform: translateX(-100%);
+  transition: var(--transition-duration-in) var(--transition-ease);
+}

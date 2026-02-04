@@ -1,0 +1,49 @@
+/*
+*IMAGE REVEAL*
+*/
+.bc-img-reveal {
+  contain: paint;
+
+  display: block;
+  width: fit-content; /*width*/
+  height: auto;
+}
+.bc-img-reveal__element {
+  visibility: hidden;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  --scale: 1.3;
+}
+.bc-img-reveal__element[data-direction="top"] {
+  transform: translateY(-100%);
+}
+.bc-img-reveal__element[data-direction="bottom"] {
+  transform: translateY(100%);
+}
+.bc-img-reveal__element[data-direction="left"] {
+  transform: translateX(-100%);
+}
+.bc-img-reveal__element[data-direction="right"] {
+  transform: translateX(100%);
+}
+.bc-img-reveal__element .bc-img-reveal__img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform-origin: left;
+}
+.bc-img-reveal__element[data-direction="top"] .bc-img-reveal__img {
+  transform: translateY(100%) scale(var(--scale));
+}
+.bc-img-reveal__element[data-direction="bottom"] .bc-img-reveal__img {
+  transform: translateY(-100%) scale(var(--scale));
+}
+.bc-img-reveal__element[data-direction="left"] .bc-img-reveal__img {
+  transform: translateX(100%) scale(var(--scale));
+}
+.bc-img-reveal__element[data-direction="right"] .bc-img-reveal__img {
+  transform: translateX(-100%) scale(var(--scale));
+}

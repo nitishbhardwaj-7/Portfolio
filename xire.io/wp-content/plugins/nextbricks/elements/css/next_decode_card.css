@@ -1,0 +1,96 @@
+.next-decode-card {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: transparent;
+}
+.next-decode-card__inner {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.next-decode-card__pattern {
+  pointer-events: none;
+}
+.next-decode-card__pattern-gradient {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(white, transparent);
+  -webkit-mask-image: linear-gradient(white, transparent);
+  opacity: 0;
+  transition: opacity var(--fade-duration) var(--fade-easing);
+}
+.next-decode-card__inner:hover .next-decode-card__pattern-gradient {
+  opacity: 0.5;
+}
+.next-decode-card__pattern-motion {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--gradient-left),
+    var(--gradient-right)
+  );
+  opacity: 0;
+  transition: opacity var(--fade-duration) var(--fade-easing);
+  backdrop-filter: blur(var(--backdrop-filter));
+}
+.next-decode-card__inner:hover .next-decode-card__pattern-motion {
+  opacity: 1;
+}
+.next-decode-card__pattern-text {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity var(--fade-duration) var(--fade-easing);
+}
+.next-decode-card__inner:hover .next-decode-card__pattern-text {
+  opacity: 1;
+}
+.next-decode-card__random-text {
+  position: absolute;
+  inset-inline: 0;
+  height: 100%;
+  word-break: break-all;
+  white-space: pre-wrap;
+  font-family: monospace;
+  transition: duration 0.5s;
+  margin: 0;
+}
+.next-decode-card__content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.next-decode-card__hover-container {
+  position: relative;
+  height: var(--content-size);
+  width: var(--content-size);
+  border-radius: var(--content-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.next-decode-card__hover-container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--content-color);
+  filter: blur(var(--content-blur));
+  border-radius: var(--content-radius);
+}
+[data-include-characters="0"] .next-decode-card__random-text {
+  display: none;
+}

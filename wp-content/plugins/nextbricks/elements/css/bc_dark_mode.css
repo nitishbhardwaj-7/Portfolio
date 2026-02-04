@@ -1,0 +1,41 @@
+/*
+*DARK MODE*
+*/
+.bc-dark-mode {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-dark-mode .theme-toggle {
+  --duration: 1s;
+  --theme-toggle__classic--duration: var(
+    --duration
+  ) !important; /*duracion de la animacion*/
+  --theme-toggle__lightbulb--duration: var(--duration) !important;
+  --theme-toggle__eclipse--duration: var(--duration) !important;
+  --theme-toggle__horizon--duration: var(--duration) !important;
+  --theme-toggle__simple--duration: var(--duration) !important;
+  --theme-toggle__around--duration: var(--duration) !important;
+  --theme-toggle__within--duration: var(--duration) !important;
+  --theme-toggle__expand--duration: var(--duration) !important;
+  --theme-toggle__inner-moon--duration: var(--duration) !important;
+  color: black;
+  line-height: 0;
+  font-size: 32px;
+}
+.bc-dark-mode .theme-toggle--toggled {
+  color: black;
+}
+.bc-dark-mode__list--colors {
+  display: none;
+}
+.bc-dark-mode__list--backgrounds {
+  display: none;
+}
+.bc-dark-mode__list--borders {
+  display: none;
+}
+[bc-dark-mode__transition] {
+  transition: color, background, border-color, stroke, fill;
+  transition-duration: var(--dark-mode-transition-duration);
+}

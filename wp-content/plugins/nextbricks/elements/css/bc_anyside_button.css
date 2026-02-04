@@ -1,0 +1,76 @@
+/*
+*ANYSIDE BUTTON*
+*/
+a.bc-anyside-button,
+a.bc-anyside-button:hover {
+  color: unset;
+}
+.bc-anyside-button {
+  display: block;
+  width: fit-content;
+
+  white-space: wrap;
+  --colortransition: 800ms;
+  --colortransition-ida: 800ms;
+  --pathtransition: 800ms;
+  --pathtransition-ida: 800ms;
+  --easing: ease;
+  --hover-color: #fff;
+  --click-dimensions: 500px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  background: white; /**/
+  color: #1a1a1a; /**/
+  border-radius: 15px;
+
+  text-align: center;
+
+  padding: 40px;
+}
+.bc-anyside-button__title {
+  position: relative;
+  z-index: 2;
+  transition: color var(--colortransition) var(--easing);
+}
+.bc-anyside-button__anyside-div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #252527; /**/
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path var(--pathtransition) var(--easing);
+  z-index: 1;
+}
+.bc-anyside-button[data-type="hover"]:hover .bc-anyside-button__title {
+  color: var(--hover-color); /**/
+  transition: color var(--colortransition-ida) var(--easing);
+}
+.bc-anyside-button[data-type="hover"]:hover .bc-anyside-button__anyside-div {
+  clip-path: circle(100% at 50% 50%);
+  transition: clip-path var(--pathtransition-ida) var(--easing);
+}
+[data-type="click"] .bc-anyside-button__anyside-span {
+  background: #252527;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  border-radius: 50%;
+  animation: animate var(--pathtransition) linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: var(--click-dimensions);
+    height: var(--click-dimensions);
+    opacity: 0;
+  }
+}

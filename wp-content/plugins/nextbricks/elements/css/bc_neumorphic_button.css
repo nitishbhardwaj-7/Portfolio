@@ -1,0 +1,33 @@
+/*
+Neumorphic Button
+*/
+.bc-neumorphic-button {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+  white-space: wrap;
+
+  --left-color: rgba(180, 180, 180, 0.7); /**/
+  --right-color: rgba(255, 255, 255, 1); /**/
+  --spread: 2px; /**/
+
+  box-shadow: var(--spread) calc(var(--spread) * 0.5) var(--spread)
+      var(--left-color),
+    inset calc(var(--spread) * 1.5) var(--spread) calc(var(--spread) * 2.5)
+      var(--right-color);
+  border-radius: 100px; /*border*/
+  font-size: 16px; /*typography*/
+  padding: 8px 15px; /*padding*/
+
+  --duration: 0.3s; /**/
+  --ease: ease-in-out; /**/
+  transition: all var(--duration) var(--ease);
+}
+.bc-neumorphic-button:hover,
+.bc-neumorphic-button:focus {
+  box-shadow: calc(var(--spread) * -1) calc(var(--spread) * -0.5) var(--spread)
+      var(--left-color),
+    inset calc(var(--spread) * -1.5) calc(var(--spread) * -1)
+      calc(var(--spread) * 1.5) var(--right-color);
+}

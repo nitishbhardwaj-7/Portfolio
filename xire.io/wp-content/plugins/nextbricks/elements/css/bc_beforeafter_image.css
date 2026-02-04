@@ -1,0 +1,112 @@
+/*
+BEFORE/AFTER IMAGE
+*/
+.bc-before-after-image[data-flickering] {
+  opacity: 0;
+}
+.bc-before-after-image {
+  width: 100%; /*ancho wrapper ambas imagenes*/
+  height: 100%; /*altura wrapper*/
+
+  overflow: hidden;
+  position: relative;
+  transform: rotate(0deg);
+}
+.bc-before-after-image *::selection {
+  background: transparent;
+}
+.bc-before-after-image__content-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: unset;
+  outline: unset;
+}
+.bc-before-after-image__before,
+.bc-before-after-image__after {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bc-before-after-image__before {
+  position: relative;
+}
+.bc-before-after-image__scroller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+
+  width: 50px; /**/
+  height: 50px; /**/
+  position: absolute;
+  top: 50%;
+  --transition-duration: 0.2s;
+  transform: translateY(-50%);
+  background-color: transparent;
+  opacity: 0.8; /**/
+  transition: opacity var(--transition-duration);
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+
+  border-radius: 50%; /**/
+  border: 2px solid #fff; /*grosor circulo*/
+
+  --color-line: white;
+  --width: 2px;
+}
+.bc-before-after-image__scroller:hover {
+  opacity: 1 !important;
+}
+.bc-before-after-image__scrolling {
+  pointer-events: none;
+  opacity: 1 !important;
+}
+.bc-before-after-image__scroller--thumb {
+  --dimensions: 15px;
+  width: 100%; /**/
+  height: 100%; /**/
+
+  fill: white; /**/
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+}
+.bc-before-after-image .bc-before-after-image__scroller--thumb svg {
+  min-width: unset;
+  min-height: unset;
+
+  width: var(--dimensions); /**/
+  height: var(--dimensions); /**/
+}
+.bc-before-after-image__scroller:before,
+.bc-before-after-image__scroller:after {
+  content: " ";
+  display: block;
+  width: 10px; /*grosor lineas*/
+  height: 9999px;
+  position: absolute;
+  left: 50%;
+  width: var(--width);
+  margin-left: calc(var(--width) / -2 - 0.5px);
+  z-index: 30;
+  transition: 0.1s;
+
+  background: var(--color-line); /*color linea*/
+}
+.bc-before-after-image__scroller:before {
+  top: 100%;
+}
+.bc-before-after-image__scroller:after {
+  bottom: 100%;
+}

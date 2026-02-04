@@ -1,0 +1,13 @@
+/*
+* Counter
+*/
+.bc-counter__anchor {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+.bc-counter {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}

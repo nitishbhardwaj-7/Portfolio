@@ -1,0 +1,13 @@
+/*
+Divider
+*/
+.bc-divider {
+  width: 100%; /**/
+}
+.bc-divider__motion {
+  --height: 1px;
+  border-top: var(--height) solid;
+  width: 0;
+
+  border-color: black;
+}
